@@ -220,7 +220,7 @@ body {
     right: -15px;
     top: 38px;
     font-size: 25px;
-    font-family: "Museo Cyrillic Bold";
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
     width: 300px;
 }
 
@@ -254,19 +254,86 @@ body {
     right: -15px;
     top: 42px;
     font-size: 25px;
-    font-family: "Museo Cyrillic Bold";
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
     width: 300px;
 }
 
 /*end b-title-bird*/
 
+/*begin b-title-baterflay*/
+.b-title-baterflay {
+    position: relative;
+    height: 102px;
+    overflow: hidden;
+}
+
+.b-title-baterflay_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 248px;
+    height: 78px;
+}
+
+.b-title-baterflay_img {
+    position: absolute;
+    right: 10px;
+    top: -20px;
+
+}
+
+.b-title-baterflay_text {
+    position: absolute;
+    right: 190px;
+    top: 32px;
+    font-size: 25px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    max-width: 100px;
+}
+
+/*end b-title-baterflay*/
+
+/*begin b-title-baterflay2*/
+.b-title-baterflay2 {
+    position: relative;
+    height: 102px;
+    overflow: hidden;
+}
+
+.b-title-baterflay2_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 248px;
+    height: 78px;
+}
+
+.b-title-baterflay2_img {
+    position: absolute;
+    right: -30px;
+    top: -20px;
+}
+
+.b-title-baterflay2_text {
+    position: absolute;
+    right: 190px;
+    top: 32px;
+    font-size: 25px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    max-width: 100px;
+}
+
+/*end b-title-baterflay*/
+
+/*begin b-trigger*/
 .b-trigger {
-    display: table;
+    display: flex;
     justify-content: center;
     margin: 20px auto;
-    width: 256px;
+    width: 266px;
     color: white;
-    cursor: pointer;
 }
 
 .b-trigger_on {
@@ -277,22 +344,33 @@ body {
 .b-trigger_off {
     background: #07c551;
     padding: 8px 20px;
+}
+
+/*end b-trigger*/
+
+/*begin b-trigger2*/
+.b-trigger2 {
+    display: table;
+    justify-content: center;
+    margin: 20px auto;
+    width: 256px;
+    color: white;
+    cursor: pointer;
+}
+
+.b-trigger2 div {
+    background: #07c551;
+    padding: 8px 20px;
     display: table-cell;
     vertical-align: middle;
+    border-left: 1px solid white;
 }
 
-.b-trigger_off.white {
-    border-right: 1px solid white;
-}
-
-.b-trigger_off div {
-    background: red;
-
-}
+/*end b-trigger2*/
 
 .b-unistroy {
     width: 197px;
-    margin: 25px auto;
+    margin: 45px auto 10px;
     display: block;
 }
 
@@ -326,7 +404,7 @@ body {
     padding: 10px 26px;
     font-family: Geneva, Arial, Helvetica, sans-serif;
     margin: 0 auto;
-    width: 360px;
+    max-width: 360px;
 }
 
 .b-document_img {
@@ -339,4 +417,35 @@ body {
     font-style: italic;
     font-size: 13px;
     margin-top: 10px;
+}
+
+.b-video {
+    position: relative;
+    margin: 0 auto;
+    width: 320px;
+    color: #545454;
+}
+
+.b-video_arrow_circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: #07c551;
+    opacity: 0.8;
+    line-height: 70px;
+    text-align: center;
+    top: 64px;
+    left: 130px;
+    cursor: pointer;
+}
+
+.b-video_text {
+    padding: 20px 0 20px 25px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.b-video_text div {
+    font-size: 14px;
+    padding: 3px 0 15px 0;
 }
