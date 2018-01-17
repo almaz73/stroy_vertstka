@@ -1,0 +1,184 @@
+@font-face {
+    font-family: "Museo Cyrillic";
+    src: url("fonts/exljbris - Museo Cyrl 300.otf");
+}
+
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
+}
+
+.page {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/*begin HEADER*/
+.b-header {
+    background: #61635d;
+    height: 77px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.b-header_leaf {
+    position: absolute;
+    top: 8px;
+    left: -38px;
+}
+
+.b-header_logo {
+    margin-top: 18px;
+}
+
+.b-header_button {
+    position: absolute;
+    right: 0;
+    width: 77px;
+    height: 77px;
+    cursor: pointer;
+}
+
+.b-header_button.off {
+    background-image: url(images/chrest_yellow.png)
+}
+
+.b-header_button.on {
+    background-image: url(images/hamburger.png)
+}
+
+.b-header_arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    line-height: 43px;
+    width: 39px;
+    height: 37px;
+    border-radius: 3px;
+    background-color: #fdf56b;
+    z-index: 1;
+}
+
+.b-header_arrow.hide {
+    display: none;
+}
+
+/*end HEADER*/
+
+.b-button {
+    margin: 10px auto;
+    width: 207px;
+    height: 40px;
+    background-color: #07c551;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 7px 18px #444;
+    cursor: pointer;
+}
+
+.b-email {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.b-menu {
+    background: #61635d;
+    color: white;
+    padding: 26px;
+    border-top: 1px solid #ffffff;
+}
+
+.b-menu_phone {
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 1px solid #81827d;
+    padding: 17px 0;
+}
+
+.b-menu_lest a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 18px;
+    line-height: 40px;
+    border-bottom: 1px solid #81827d;
+}
+
+.b-send {
+    color: white;
+    background: #68b84a;
+    padding: 26px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    height: 1000px;
+    position: relative;
+}
+
+.b-send_logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.b-send_title {
+    display: block;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;;
+    margin: 50px 0 20px 0;
+}
+
+.b-send label {
+    display: block;
+    font-size: 11px;
+    padding: 14px 0 8px 0;
+}
+
+.b-send input {
+    background: #529d36;
+    height: 40px;
+    width: 100%;
+    border: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .4) inset;
+}
+
+.b-send .checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 30px;
+}
+
+.b-send .checkbox_text {
+    font-size: 16px;
+    max-width: 50px;
+}
+
+.b-send_button {
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 120px;
+    color: white;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid white;
+    background: #68b84a;
+    cursor: pointer;
+}
+
+.b-send_text {
+    text-align: center;
+}
+
+
+
+
+
+
