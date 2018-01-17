@@ -88,7 +88,7 @@ body {
     padding: 30px 0;
 }
 .b-email-left {
-    padding: 30px 26px;
+    margin: 35px 26px;
     color: #545454;
 }
 
@@ -214,17 +214,49 @@ body {
     right: -15px;
     top:38px;
     font-size: 25px;
-    font-family: Museo Cyrillic Bold;
+    font-family: "Museo Cyrillic Bold";
     width: 300px;
 }
 /*end b-title-bird*/
 
+
+/*begin b-title-bird*/
+.b-title-hedgehog{
+    position: relative;
+    height: 87px;
+}
+.b-title-hedgehog_span{
+    position: absolute;
+    right: 0;
+    top:32px;
+    background: #b3e3fa;
+    width: 235px;
+    height: 54px;
+}
+.b-title-hedgehog_img{
+    position: absolute;
+    right: -115px;
+    top:-30px;
+
+}
+.b-title-hedgehog_text{
+    position: absolute;
+    right: -15px;
+    top:42px;
+    font-size: 25px;
+    font-family: "Museo Cyrillic Bold";
+    width: 300px;
+}
+/*end b-title-bird*/
+
+
 .b-trigger{
-    display: flex;
+    display: table;
     justify-content:center;
     margin: 20px auto;
     width: 266px;
     color: white;
+    cursor: pointer;
 }
 .b-trigger_on{
     background: black;
@@ -233,7 +265,19 @@ body {
 .b-trigger_off {
     background: #07c551;
     padding: 8px 20px;
+    display: table-cell;
+    vertical-align: middle;
 }
+
+.b-trigger_off.white{
+    border-right: 1px solid white;
+}
+
+.b-trigger_off div{
+    background: red;
+
+}
+
 
 .b-unistroy{
     width: 197px;
@@ -262,4 +306,21 @@ body {
 }
 .b-map{
     width: 100%;
+}
+
+.b-document{
+    color: #545454;
+    padding: 10px 26px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+.b-document_img{
+    float: left;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.b-document_i {
+    font-style: italic;
+    font-size: 13px;
+    margin-top: 10px;
 }
