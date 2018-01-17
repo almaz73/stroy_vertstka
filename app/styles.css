@@ -3,8 +3,12 @@
     src: url("fonts/exljbris - Museo Cyrl 300.otf");
 }
 
+@font-face {
+    font-family: "Museo Cyrillic Bold";
+    src: url("fonts/exljbris - Museo Cyrl 500.otf");
+}
+
 body {
-    background: black;
     margin: 0;
     padding: 0;
     font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
@@ -83,6 +87,10 @@ body {
     text-align: center;
     padding: 30px 0;
 }
+.b-email-left {
+    padding: 30px 26px;
+    color: #545454;
+}
 
 .b-menu {
     background: #61635d;
@@ -107,6 +115,7 @@ body {
     border-bottom: 1px solid #81827d;
 }
 
+/*begin b-send*/
 .b-send {
     color: white;
     background: #68b84a;
@@ -127,7 +136,7 @@ body {
     display: block;
     font-size: 30px;
     text-align: center;
-    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;;
+    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
     margin: 50px 0 20px 0;
 }
 
@@ -176,9 +185,81 @@ body {
 .b-send_text {
     text-align: center;
 }
+/*end b-send*/
 
+/*.b-content{*/
+    /*!*background: white;*!*/
+/*}*/
 
+/*begin b-title-bird*/
+.b-title-bird{
+    position: relative;
+    height: 114px;
+}
+.b-title-bird_span{
+    position: absolute;
+    right: 0;
+    top:25px;
+    background: #fcf560;
+    width: 235px;
+    height: 88px;
+}
+.b-title-bird_img{
+    position: absolute;
+    right: 0;
 
+}
+.b-title-bird_text{
+    position: absolute;
+    right: -15px;
+    top:38px;
+    font-size: 25px;
+    font-family: Museo Cyrillic Bold;
+    width: 300px;
+}
+/*end b-title-bird*/
 
+.b-trigger{
+    display: flex;
+    justify-content:center;
+    margin: 20px auto;
+    width: 266px;
+    color: white;
+}
+.b-trigger_on{
+    background: black;
+    padding: 8px 20px;
+}
+.b-trigger_off {
+    background: #07c551;
+    padding: 8px 20px;
+}
 
+.b-unistroy{
+    width: 197px;
+    margin: 25px auto;
+    display: block;
+}
 
+.b-contact{
+    padding: 0 26px;
+    margin: 25px 0;
+    font-size: 16px;
+    color: #545454;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+
+}
+.b-contact_b{
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.b-copyriht{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 10px;
+    color: #545454;
+}
+.b-map{
+    width: 100%;
+}
