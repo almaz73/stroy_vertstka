@@ -361,6 +361,7 @@ a {
     width: 256px;
     color: white;
     cursor: pointer;
+    text-align: center;
 }
 
 .b-trigger2 div {
