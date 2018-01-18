@@ -231,7 +231,40 @@ a {
 
 /*end b-title-bird*/
 
-/*begin b-title-bird*/
+/*begin b-title-bird2*/
+.b-title-bird2 {
+    position: relative;
+    height: 93px;
+    overflow: hidden;
+}
+
+.b-title-bird2_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 235px;
+    height: 57px;
+}
+
+.b-title-bird2_img {
+    position: absolute;
+    right: 0;
+
+}
+
+.b-title-bird2_text {
+    position: absolute;
+    right: 0;
+    top: 33px;
+    font-size: 32px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 300px;
+}
+
+/*end b-title-bird2*/
+
+/*begin b-title-hedgehog*/
 .b-title-hedgehog {
     position: relative;
     height: 87px;
@@ -339,6 +372,7 @@ a {
     margin: 20px auto;
     width: 266px;
     color: white;
+    text-align: center;
 }
 
 .b-trigger_on {
@@ -360,7 +394,6 @@ a {
     margin: 20px auto;
     width: 256px;
     color: white;
-    cursor: pointer;
     text-align: center;
 }
 
@@ -395,9 +428,9 @@ a {
 }
 
 .b-copyriht {
-    margin: 30px 0;
+    margin: 28px 0;
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
     color: #545454;
 }
 
@@ -462,4 +495,22 @@ a {
 .b-video_text div {
     font-size: 14px;
     padding: 3px 0 15px 0;
+}
+
+.b-banks {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    padding: 26px;
+    color: #545454;
+
+}
+
+.b-banks_img {
+    text-align: center;
+}
+
+.b-banks_link {
+    background: #bb94c3;
+    color: white;
+    display: inline-block;
+    padding: 2px;
 }
