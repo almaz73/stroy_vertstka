@@ -302,6 +302,38 @@ hr {
 
 /*end b-title-bird3*/
 
+/*begin b-title-turtle*/
+.b-title-turtle {
+    position: relative;
+    height: 118px;
+    overflow: hidden;
+}
+
+.b-title-turtle_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 235px;
+    height: 73px;
+}
+
+.b-title-turtle_img {
+    position: absolute;
+    right: -30px;
+}
+
+.b-title-turtle_text {
+    position: absolute;
+    right: 95px;
+    top: 25px;
+    font-size: 30px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 200px;
+}
+
+/*end b-title-turtle*/
+
 /*begin b-title-hedgehog*/
 .b-title-hedgehog {
     position: relative;
@@ -659,7 +691,6 @@ hr {
 .b-infra {
     clear: both;
     margin-bottom: 90px;
-    margin-top: -20px;
 }
 
 .b-infra_div {
@@ -738,3 +769,48 @@ hr {
     border-radius: 38px;
     background: #222;
 }
+
+.b-blue-fon {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: inline-block;
+    background: #b3e3fa;
+    padding: 5px;
+    margin: 2px;
+    padding: 5px 10px 5px 26px;
+    clear: both;
+}
+
+.b-company-history {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    /*background: #aaaaaa;*/
+}
+
+.b-company-history p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.b-company-history span {
+    padding: 10px;
+}
+
+.b-company-history p:nth-child(odd) img {
+    padding-right: 10px;
+}
+
+.b-company-history p:nth-child(even) img {
+    padding-left: 10px;
+}
+
+.b-company-history p:nth-child(odd) {
+    flex-direction: row;
+}
+
+.b-company-history p:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+
