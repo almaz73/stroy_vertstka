@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="b-header">
+        <div class="b-header_arrow hide"><img src="images/arrow_line_left.png"></div>
+        <img class="b-header_leaf" src="images/leaf_white.png">
+        <img class="b-header_logo" src="images/logo_white.png">
+        <a href="01_3-меню.html"><span class="b-header_button on"/></a>
+    </div>
+
+
+    <div class="b-title-bird3">
+        <span class="b-title-bird3_span"></span>
+        <span class="b-title-bird3_text">Инфра-структура</span>
+        <img class="b-title-bird3_img" src="images/bird.png">
+    </div>
+
+    <img src="images/icons/infra1.svg" alt="Breaking Borders Logo" height="25" width="28">
+
+    <div class="b-infra">
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i1.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">15 минут от Казани</div>
+            </div>
+        </div>
+
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i2.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Природное озеро и лес рядом с домом</div>
+            </div>
+        </div>
+
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i3.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Площадки для спорта и игр</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i4.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">4 детсада по 160 мест, школа на 1550 мест</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i5.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Малоэтажная хастройка</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i6.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Парковая зона</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i4.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">4 детсада по 160 мест, школа на 1550 мест</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i5.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Малоэтажная хастройка</div>
+            </div>
+        </div>
+        <div class="b-infra_div">
+            <img class="b-infra_img" src="images/pic/i6.png"/>
+            <div class="b-infra_p">
+                <div class="b-infra_symbol">
+                    <img src="images/icons/infra1.svg"/>
+                </div>
+                <div class="b-infra_text">Парковая зона</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="b-trigger2">
+        <div>Планировки</div>
+        <div>Подобрать квартиру</div>
+    </div>
+
+    <div class="b-title-hedgehog2">
+        <span class="b-title-hedgehog2_span"></span>
+        <span class="b-title-hedgehog2_text">Галерея</span>
+        <img class="b-title-hedgehog2_img" src="images/hedgehog.png">
+    </div>
+
+    <div class="b-gallery">
+        <div onclick="toGo(-1)" class="b-gallery_button left">
+            <div>
+                <img src="images/arrow_left.png"/>
+            </div>
+        </div>
+        <div onclick="toGo(1)" class="b-gallery_button right">
+            <div>
+                <img src="images/arrow_right.png"/>
+            </div>
+        </div>
+        <img id="b-gallery-show" src="images/gallery/gal3.png">
+    </div>
+
+    <img class="b-unistroy" src="images/unistroy.png">
+
+    <div class="b-copyriht">&copy; 2017. Царёво Village</div>
+
+
+</div>
+
+<script>
+   "use strict";
+   var galleryArr = ["gal1.png", "gal2.png", "gal3.png", "gal4.png"];
+   var path = "images/gallery/";
+   var len = galleryArr.length;
+   var currentId = 1;
+
+   function toGo (val) {
+      currentId += val;
+      if (currentId > len) currentId = len;
+      if (currentId < 1) currentId = 1;
+      document.getElementById ('b-gallery-show').src = path + galleryArr[currentId - 1];
+   }
+
+</script>
+</body>
+</html>

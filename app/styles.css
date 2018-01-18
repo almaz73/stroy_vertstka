@@ -19,9 +19,9 @@ a {
     text-decoration: none;
 }
 
-hr{
+hr {
     background: #61625d;
-    height: 0px;
+    height: 0;
     margin: 25px 0 35px;
 }
 
@@ -270,6 +270,38 @@ hr{
 
 /*end b-title-bird2*/
 
+/*begin b-title-bird3*/
+.b-title-bird3 {
+    position: relative;
+    height: 93px;
+    overflow: hidden;
+}
+
+.b-title-bird3_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 235px;
+    height: 77px;
+}
+
+.b-title-bird3_img {
+    position: absolute;
+    right: 0;
+}
+
+.b-title-bird3_text {
+    position: absolute;
+    right: 85px;
+    top: 25px;
+    font-size: 25px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 200px;
+}
+
+/*end b-title-bird3*/
+
 /*begin b-title-hedgehog*/
 .b-title-hedgehog {
     position: relative;
@@ -302,7 +334,41 @@ hr{
     width: 300px;
 }
 
-/*end b-title-bird*/
+/*end b-title-hedgehog*/
+
+/*begin b-title-hedgehog2*/
+.b-title-hedgehog2 {
+    position: relative;
+    height: 85px;
+    overflow: hidden;
+}
+
+.b-title-hedgehog2_span {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    background: #b3e3fa;
+    width: 235px;
+    height: 54px;
+}
+
+.b-title-hedgehog2_img {
+    position: absolute;
+    right: -30px;
+    top: -35px;
+
+}
+
+.b-title-hedgehog2_text {
+    position: absolute;
+    right: -15px;
+    top: 42px;
+    font-size: 25px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 300px;
+}
+
+/*end b-title-hedgehog2*/
 
 /*begin b-title-baterflay*/
 .b-title-baterflay {
@@ -568,7 +634,8 @@ hr{
     margin-top: 20px;
     position: relative;
 }
-.b-news_title a{
+
+.b-news_title a {
     color: inherit;
 }
 
@@ -577,12 +644,97 @@ hr{
     line-height: 26px;
     font-weight: normal;
 }
-.b-news_title_span{
+
+.b-news_title_span {
     display: table;
     width: 186px;
 }
-.b-news_title img{
+
+.b-news_title img {
     position: absolute;
-    top:0;
+    top: 0;
     right: -26px;
+}
+
+.b-infra {
+    clear: both;
+    margin-bottom: 90px;
+    margin-top: -20px;
+}
+
+.b-infra_div {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+.b-infra_div:nth-child(even) .b-infra_img {
+    float: right;
+    margin-left: 15px;
+}
+
+.b-infra_div:nth-child(odd) .b-infra_img {
+    float: left;
+    margin-right: 15px;
+}
+
+.b-infra_div {
+    clear: both;
+}
+
+.b-infra_symbol {
+    display: inline-block;
+    background: url(images/symbol.png);
+    width: 36px;
+    height: 41px;
+    margin-bottom: 15px;
+}
+
+.b-infra_div:nth-child(odd) .b-infra_p {
+    text-align: left;
+    padding: 0 10px;
+}
+
+.b-infra_div:nth-child(even) .b-infra_p {
+    text-align: right;
+    padding: 0 10px;
+}
+
+.b-gallery {
+    width: 320px;
+    height: 395px;
+    background: #b3e3fa;
+    margin: 0 auto;
+    position: relative;
+}
+
+.b-gallery_button {
+    position: absolute;
+    width: 77px;
+    height: 57px;
+    top: 151px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.b-gallery_button.left {
+    left: 0;
+}
+
+.b-gallery_button.right {
+    right: 0;
+}
+
+.b-gallery_button.right div {
+    float: right;
+}
+
+.b-gallery_button div {
+    text-align: center;
+    line-height: 44px;
+    opacity: 0.5;
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    background: #222;
 }
