@@ -367,6 +367,7 @@ a {
 
 /*begin b-trigger*/
 .b-trigger {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     margin: 20px auto;
