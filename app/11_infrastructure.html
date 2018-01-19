@@ -32,7 +32,7 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_text">15 минут от Казани</div>
+                <div>15 минут от Казани</div>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_text">Площадки для спорта и игр</div>
+                <div>Площадки для спорта и игр</div>
             </div>
         </div>
         <div class="b-infra_div">
@@ -70,7 +70,7 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_text">Малоэтажная хастройка</div>
+                <div>Малоэтажная хастройка</div>
             </div>
         </div>
         <div class="b-infra_div">
@@ -88,7 +88,7 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_text">4 детсада по 160 мест, школа на 1550 мест</div>
+                <div>4 детсада по 160 мест, школа на 1550 мест</div>
             </div>
         </div>
         <div class="b-infra_div">
@@ -97,7 +97,7 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_text">Малоэтажная хастройка</div>
+                <div>Малоэтажная хастройка</div>
             </div>
         </div>
         <div class="b-infra_div">
@@ -111,6 +111,8 @@
         </div>
 
     </div>
+
+    <br><br><br><br>
 
 
     <div class="b-trigger2">
@@ -135,7 +137,7 @@
                 <img src="images/arrow_right.png"/>
             </div>
         </div>
-        <img id="b-gallery-show" src="images/gallery/gal3.png">
+        <img id="b-gallery-show" src="images/gallery/gal1.png">
     </div>
 
     <img class="b-unistroy" src="images/unistroy.png">
@@ -149,16 +151,14 @@
    "use strict";
    var galleryArr = ["gal1.png", "gal2.png", "gal3.png", "gal4.png"];
    var path = "images/gallery/";
-   var len = galleryArr.length;
-   var currentId = 1;
-
+   var len = galleryArr.length-1;
+   var currentId = 0;
    function toGo (val) {
       currentId += val;
       if (currentId > len) currentId = len;
-      if (currentId < 1) currentId = 1;
-      document.getElementById ('b-gallery-show').src = path + galleryArr[currentId - 1];
+      if (currentId < 0) currentId = 0;
+      document.getElementById ('b-gallery-show').src = path + galleryArr[currentId];
    }
-
 </script>
 </body>
 </html>

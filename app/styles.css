@@ -22,7 +22,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Ubuntu, Geneva, Arial, Helvetica, sans-serif;
-    color: #545454;
+    color: #282828;
 }
 
 a {
@@ -37,9 +37,15 @@ hr {
 }
 
 h2 {
-    margin-top: 45px;
     font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
 }
+
+h1 {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-weight: inherit;
+    margin: 15px 0;
+}
+
 
 .page {
     max-width: 600px;
@@ -327,6 +333,41 @@ h2 {
 }
 
 /*end b-title-bird3*/
+
+/*begin b-title-raccoon*/
+.b-title-raccoon {
+    position: relative;
+    height: 130px;
+    overflow: hidden;
+}
+
+.b-title-raccoon_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 235px;
+    height: 80px;
+}
+
+.b-title-raccoon_img {
+    position: absolute;
+    right: -70px;
+
+}
+
+.b-title-raccoon_text {
+    position: absolute;
+    right: 87px;
+    top: 25px;
+    font-size: 30px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 210px;
+    color:black;
+}
+
+/*end b-title-raccoon*/
+
 
 /*begin b-title-turtle*/
 .b-title-turtle {
@@ -645,11 +686,15 @@ h2 {
 }
 
 .b-document {
-
-    padding: 10px 26px;
+    padding: 5px 26px;
     font-size: 16px;
     margin: 0 auto;
     max-width: 360px;
+}
+
+.b-document label{
+    display: block;
+    font-size: 12px;
 }
 
 .b-document_img {
@@ -741,7 +786,6 @@ h2 {
 
 .b-infra {
     clear: both;
-    margin-bottom: 90px;
 }
 
 .b-infra_div {
@@ -779,6 +823,17 @@ h2 {
 .b-infra_div:nth-child(even) .b-infra_p {
     text-align: right;
     padding: 0 10px;
+}
+
+.b-infra_div:nth-child(odd) .b-infra_txt_buttom{
+    clear: both;
+    padding: 15px 16px;
+}
+
+.b-infra_div:nth-child(even) .b-infra_txt_buttom{
+    clear: both;
+    padding: 15px 56px;
+    text-align: left;
 }
 
 .b-gallery {
