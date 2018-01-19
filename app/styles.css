@@ -8,10 +8,21 @@
     src: url("fonts/exljbris - Museo Cyrl 500.otf");
 }
 
+@font-face {
+    font-family: "Ubuntu";
+    src: url("fonts/UbuntuRegular.eot");
+    src: url("fonts/UbuntuRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/UbuntuRegular.woff") format("woff"),
+    url("fonts/UbuntuRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
+    font-family: Ubuntu, Geneva, Arial, Helvetica, sans-serif;
+    color: #545454;
 }
 
 a {
@@ -23,6 +34,11 @@ hr {
     background: #61625d;
     height: 0;
     margin: 25px 0 35px;
+}
+
+h2 {
+    margin-top: 45px;
+    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
 }
 
 .page {
@@ -84,14 +100,24 @@ hr {
 /*end HEADER*/
 
 .b-button {
+    font-family: Ubuntu, Geneva, Arial, Helvetica, sans-serif;
     margin: 10px auto;
     width: 207px;
     height: 40px;
     background-color: #07c551;
     text-align: center;
+    color:white;
+    font-size: 17px;
     line-height: 40px;
-    box-shadow: 0 7px 18px #444;
+    box-shadow: 0 7px 15px #444;
+    text-shadow: 0 1px 5px #444;;
     cursor: pointer;
+    margin-bottom: 18px;
+}
+.b-button-on-white{
+    box-shadow: 0 7px 15px #aaa;
+    text-shadow: 0 1px 5px #555;
+    margin-left: 0;
 }
 
 .b-email {
@@ -105,6 +131,7 @@ hr {
 }
 
 .b-menu {
+    font-family: "Museo Cyrillic", Geneva, Arial, Helvetica, sans-serif;
     background: #61635d;
     color: white;
     padding: 26px;
@@ -132,7 +159,6 @@ hr {
     color: white;
     background: #68b84a;
     padding: 26px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     height: 1000px;
     position: relative;
 }
@@ -334,6 +360,38 @@ hr {
 
 /*end b-title-turtle*/
 
+/*begin b-title-turtle2*/
+.b-title-turtle2 {
+    position: relative;
+    height: 98px;
+    overflow: hidden;
+}
+
+.b-title-turtle2_span {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: #fcf560;
+    width: 235px;
+    height: 42px;
+}
+
+.b-title-turtle2_img {
+    position: absolute;
+    right: -40px;
+}
+
+.b-title-turtle2_text {
+    position: absolute;
+    right: 28px;
+    top: 25px;
+    font-size: 30px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 250px;
+}
+
+/*end b-title-turtle2*/
+
 /*begin b-title-hedgehog*/
 .b-title-hedgehog {
     position: relative;
@@ -496,7 +554,7 @@ hr {
     right: 190px;
     top: 42px;
     font-size: 30px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
     max-width: 100px;
 }
 
@@ -509,7 +567,6 @@ hr {
 
 /*begin b-trigger*/
 .b-trigger {
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     margin: 20px auto;
@@ -561,8 +618,6 @@ hr {
     margin: 25px 0;
     font-size: 16px;
     color: #545454;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
-
 }
 
 .b-contact_b {
@@ -590,9 +645,8 @@ hr {
 }
 
 .b-document {
-    color: #545454;
+
     padding: 10px 26px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin: 0 auto;
     max-width: 360px;
@@ -633,7 +687,6 @@ hr {
 
 .b-video_text {
     padding: 20px 0 20px 25px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
 }
 
 .b-video_text div {
@@ -642,10 +695,8 @@ hr {
 }
 
 .b-banks {
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     padding: 26px;
     color: #545454;
-
 }
 
 .b-img-center {
@@ -694,7 +745,6 @@ hr {
 }
 
 .b-infra_div {
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     padding-top: 20px;
     font-size: 15px;
 }
@@ -771,20 +821,16 @@ hr {
 }
 
 .b-blue-fon {
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     font-size: 20px;
     display: inline-block;
     background: #b3e3fa;
-    padding: 5px;
     margin: 2px;
     padding: 5px 10px 5px 26px;
     clear: both;
 }
 
 .b-company-history {
-    font-family: Geneva, Arial, Helvetica, sans-serif;
     font-size: 15px;
-    /*background: #aaaaaa;*/
 }
 
 .b-company-history p {
@@ -814,3 +860,6 @@ hr {
 }
 
 
+.b-company{
+    font-size: 15px;
+}

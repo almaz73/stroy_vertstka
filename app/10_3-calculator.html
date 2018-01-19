@@ -34,10 +34,10 @@
 
     <div class="calc">
         <label>стоимость квартиры<label class="label_after">₽</label></label>
-        <input onkeyup="toCost(event)"/>
+        <input id="cost" onkeyup="toCost(event)"/>
 
         <label>первоначальный взнос<label class="label_after">₽</label></label>
-        <input id="cost_flat" onkeyup="toContribution(event)"/>
+        <input id="cost2" onkeyup="toContribution(event)"/>
         <div class="calc_buttons">
             <div onclick="toContributionButton(event)">10%</div>
             <div onclick="toContributionButton(event)">15%</div>
@@ -60,7 +60,7 @@
             <div onclick="toYearButton(event)">30<br>года</div>
         </div>
         <label>процентная вставка<label class="label_after">%</label></label>
-        <input onkeyup="toPersent(event)"/>
+        <input id="percent" onkeyup="toPersent(event)"/>
     </div>
 
     <div class="calc-total">
@@ -83,9 +83,9 @@
     <div class="b-copyriht">&copy; 2017. Царёво Village</div>
 
     <script>
-
+       'use strict';
        var year = 0,
-          cost_flat = 1000000,
+          cost_flat = 0,
           contribution = 0,
           months = 0,
           interestRate = 0,
@@ -95,24 +95,30 @@
 
        function toContributionButton (event) {
           contribution = cost_flat * parseInt (event.target.innerText) / 100;
-          document.getElementById ("cost_flat").value = contribution;
+          document.getElementById ("cost2").value = contribution.toLocaleString ("ru");
           toCalc ()
        }
 
        function toContribution (event) {
-          contribution = parseInt (event.target.value);
+          contribution = parseInt (event.target.value.replace (/\s+/g, ""));
+          if (isNaN (contribution)) document.getElementById ("cost2").value = ""
+          if (contribution) document.getElementById ("cost2").value = contribution.toLocaleString ("ru")
           toCalc ()
        }
 
        function toCost (event) {
-          cost_flat = parseInt (event.target.value);
+          cost_flat = parseInt (event.target.value.replace (/\s+/g, ""));
+          if (isNaN (cost_flat)) document.getElementById ("cost").value = ""
+          if (cost_flat) document.getElementById ("cost").value = cost_flat.toLocaleString ("ru")
           toCalc ()
        }
 
 
        function toYear (event) {
           months = parseInt (event.target.value);
+          if (isNaN (months)) months = "";
           year = months / 12;
+          document.getElementById ("months").value = months;
           toCalc ()
        }
 
@@ -125,6 +131,8 @@
 
        function toPersent (event) {
           interestRate = parseInt (event.target.value);
+          if (isNaN (interestRate)) interestRate = "";
+          document.getElementById ("percent").value = interestRate;
           toCalc ()
        }
 
