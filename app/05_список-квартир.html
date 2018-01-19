@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+    <div class="b-header">
+        <div class="b-header_arrow hide_"><a href="#" onclick="history.go(-1)"><img src="images/arrow_line_left.png"/></a></div>
+        <img class="b-header_leaf" src="images/leaf_white.png">
+        <img class="b-header_logo" src="images/logo_white.png">
+        <a href="01_3-меню.html"><span class="b-header_button on"></span></a>
+    </div>
+
+    <div class="b-title-duck">
+        <span class="b-title-duck_span"></span>
+        <span class="b-title-duck_text">Подобрать квартиру</span>
+        <img class="b-title-duck_img" src="images/duck.png">
+    </div>
+
+
+    <div class="b-filter">
+        <span class="b-filter_buttons">
+            <span class="b-filter_buttons_off">Генплан</span><span class="b-filter_buttons_on">Планировки</span>
+        </span>
+        <span class="b-filter_opener"  onclick="openFilter()">
+            <img src="images/filter.png">
+        </span>
+        <div class="b-filter-body">
+            <div class="b-filter-body_area">
+                <label>КОМНАТ</label>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <br>
+                <label>ЭТАЖ</label>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <br><br>
+                СТОИМОСТЬ КВАРТИРЫ, ₽<br><br>
+                <input type="text" value="1 000 000"/> &nbsp; -- &nbsp;
+                <input type="text" value="2 500 000"/><br><br><br>
+                ПЛОЩАДЬ, м<sup>2</sup><br><br>
+                <input type="text" value="30"/> &nbsp; -- &nbsp;
+                <input type="text" value="70"/><br><br><br>
+                <div class="b-filter-body_clear">Сбросить фильтр</div>
+            </div>
+        </div>
+    </div>
+
+<br>
+    <div class="b-document">
+        <table>
+            <thead>
+                <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
+                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
+                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
+                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
+                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
+                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
+                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
+                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <img class="b-unistroy" src="images/unistroy.png">
+
+    <div class="b-copyriht">&copy; 2017. Царёво Village</div>
+
+</div>
+<script>
+    'use script'
+    function openFilter(){
+       var opener = document.getElementsByClassName("b-filter_opener")[0];
+       var filterBody = document.getElementsByClassName("b-filter-body")[0];
+       if(filterBody.style.display!=='block'){
+          opener.style.padding='10px 14px 16px 14px'
+          filterBody.style.display='block'
+       }else{
+          opener.style.padding='10px 14px 6px'
+          filterBody.style.display='none'
+       }
+    }
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
 @font-face {
     font-family: "Ubuntu";
     src: url("fonts/UbuntuRegular.eot");
-    src: url("fonts/UbuntuRegular.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/UbuntuRegular.eot?#iefix") format("embedded-opentype"),
     url("fonts/UbuntuRegular.woff") format("woff"),
     url("fonts/UbuntuRegular.ttf") format("truetype");
     font-style: normal;
@@ -46,6 +46,25 @@ h1 {
     margin: 15px 0;
 }
 
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+tr:nth-child(even) {
+    background: #e4e4e4;
+}
+
+td, th {
+    text-align: center;
+    padding: 9px; /* Поля вокруг текста */
+    vertical-align: bottom;
+}
+
+th {
+    font-size: 12px;
+    border-bottom: solid 1px black;
+}
 
 .page {
     max-width: 600px;
@@ -113,7 +132,7 @@ h1 {
     height: 40px;
     background-color: #07c551;
     text-align: center;
-    color:white;
+    color: white;
     font-size: 17px;
     line-height: 40px;
     box-shadow: 0 7px 15px #444;
@@ -121,7 +140,8 @@ h1 {
     cursor: pointer;
     margin-bottom: 18px;
 }
-.b-button-on-white{
+
+.b-button-on-white {
     box-shadow: 0 7px 15px #aaa;
     text-shadow: 0 1px 5px #555;
     margin-left: 0;
@@ -364,11 +384,10 @@ h1 {
     font-size: 30px;
     font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
     width: 210px;
-    color:black;
+    color: black;
 }
 
 /*end b-title-raccoon*/
-
 
 /*begin b-title-turtle*/
 .b-title-turtle {
@@ -501,6 +520,41 @@ h1 {
 }
 
 /*end b-title-hedgehog2*/
+
+/*begin b-title-duck*/
+.b-title-duck {
+    position: relative;
+    height: 137px;
+    overflow: hidden;
+}
+
+.b-title-duck_span {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    background: #b3e3fa;
+    width: 235px;
+    height: 124px;
+}
+
+.b-title-duck_img {
+    position: absolute;
+    right: -25px;
+    top: 7px;
+
+}
+
+.b-title-duck_text {
+    position: absolute;
+    right: 45px;
+    top: 34px;
+    top: 34px;
+    font-size: 30px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 250px;
+}
+
+/*end b-title-duck*/
 
 /*begin b-title-baterflay*/
 .b-title-baterflay {
@@ -693,7 +747,7 @@ h1 {
     max-width: 360px;
 }
 
-.b-document label{
+.b-document label {
     display: block;
     font-size: 12px;
 }
@@ -826,12 +880,12 @@ h1 {
     padding: 0 10px;
 }
 
-.b-infra_div:nth-child(odd) .b-infra_txt_buttom{
+.b-infra_div:nth-child(odd) .b-infra_txt_buttom {
     clear: both;
     padding: 15px 16px;
 }
 
-.b-infra_div:nth-child(even) .b-infra_txt_buttom{
+.b-infra_div:nth-child(even) .b-infra_txt_buttom {
     clear: both;
     padding: 15px 56px;
     text-align: left;
@@ -915,7 +969,84 @@ h1 {
     flex-direction: row-reverse;
 }
 
-
-.b-company{
+.b-company {
     font-size: 15px;
 }
+
+.b-filter {
+    margin-top: -10px;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.b-filter_buttons {
+    margin-right: 2px;
+}
+
+.b-filter_buttons_off {
+    background: #07c551;
+    padding: 8px 10px;
+}
+
+.b-filter_buttons_on {
+    background: #000;
+    padding: 8px 10px;
+}
+
+.b-filter_opener {
+    background: #61625d;
+    padding: 10px 14px 6px;
+    height: 150px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.b-filter-body {
+    margin: 0 auto;
+    margin-top: 12px;
+    background: #61625d;
+    font-size: 12px;
+    display: none;
+}
+
+.b-filter-body label {
+    width: 70px;
+    display: inline-block;
+}
+
+.b-filter-body_area {
+    width: 266px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 26px;
+}
+
+.b-filter-body input {
+    font-size: 21px;
+    background: #494a44;
+    border: none;
+    color: white;
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+    padding: 5px;
+    margin: 5px 0px;
+}
+
+.b-filter-body button {
+    background: white;
+    border: none;
+    margin: 0 13px 25px 0;
+    padding: 7px 16px;
+}
+
+.b-filter-body_clear {
+    display: inline-block;
+    font-size: 15px;
+    padding: 7px 15px;
+    background: #61625d;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
