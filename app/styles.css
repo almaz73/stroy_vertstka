@@ -97,6 +97,7 @@ h1 {
     border-radius: 3px;
     background-color: #fdf56b;
     z-index: 1;
+    cursor: pointer;
 }
 
 .b-header_arrow.hide {
