@@ -35,22 +35,22 @@
         <div class="b-filter-body">
             <div class="b-filter-body_area">
                 <label>КОМНАТ</label>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <button id="room1" onclick="select('room',1)">1</button>
+                <button id="room2" onclick="select('room',2)">2</button>
+                <button id="room3" onclick="select('room',3)">3</button>
                 <br>
                 <label>ЭТАЖ</label>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <button id="floor1" onclick="select('floor',1)">1</button>
+                <button id="floor2" onclick="select('floor',2)">2</button>
+                <button id="floor3" onclick="select('floor',3)">3</button>
                 <br><br>
                 СТОИМОСТЬ КВАРТИРЫ, ₽<br><br>
-                <input type="text" value="1 000 000"/> &nbsp; -- &nbsp;
-                <input type="text" value="2 500 000"/><br><br><br>
+                <input id="cost1" type="text" onkeyup="toInput('cost',1, event)"/> &nbsp; -- &nbsp;
+                <input id="cost2" type="text" onkeyup="toInput('cost',2, event)"/><br><br><br>
                 ПЛОЩАДЬ, м<sup>2</sup><br><br>
-                <input type="text" value="30"/> &nbsp; -- &nbsp;
-                <input type="text" value="70"/><br><br><br>
-                <div class="b-filter-body_clear">Сбросить фильтр</div>
+                <input id="area1" type="text" onkeyup="toInput('area',1, event)"/> &nbsp; -- &nbsp;
+                <input id="area2" type="text" onkeyup="toInput('area',2, event)"/><br><br><br>
+                <div class="b-filter-body_clear" onclick="clearAll()">Сбросить фильтр</div>
             </div>
         </div>
     </div>
@@ -59,9 +59,9 @@
     <div class="b-document">
         <table>
             <thead>
-                <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
+                <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
             </thead>
-            <tbody>
+            <tbody id="screen">
                 <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
                 <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
                 <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
@@ -90,18 +90,145 @@
 
 </div>
 <script>
-    'use script'
-    function openFilter(){
-       var opener = document.getElementsByClassName("b-filter_opener")[0];
-       var filterBody = document.getElementsByClassName("b-filter-body")[0];
-       if(filterBody.style.display!=='block'){
-          opener.style.padding='10px 14px 16px 14px'
-          filterBody.style.display='block'
-       }else{
-          opener.style.padding='10px 14px 6px'
-          filterBody.style.display='none'
-       }
-    }
+   'use script';
+   var room = 0;
+   var floor = 0;
+   var cost1 = 0;
+   var cost2 = 0;
+   var area1 = 0;
+   var area2 = 0;
+   var data = [
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
+      {number: "2,12", floor: 2, room: 1, area: "21.5", cost: "3000.5"},
+      {number: "2,18", floor: 1, room: 1, area: "21.5", cost: "3500.5"},
+      {number: "2,15", floor: 2, room: 1, area: "22", cost: "1900.5"},
+      {number: "2,18", floor: 2, room: 1, area: "21", cost: "2000"},
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
+      {number: "2,12", floor: 2, room: 2, area: "21.5", cost: "3000.5"},
+      {number: "2,18", floor: 3, room: 2, area: "21.5", cost: "3500.5"},
+      {number: "2,15", floor: 1, room: 2, area: "22", cost: "1900.5"},
+      {number: "2,18", floor: 2, room: 2, area: "21", cost: "2000"},
+      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 3, room: 3, area: "22.5", cost: "2000.5"},
+      {number: "2,12", floor: 3, room: 3, area: "21.5", cost: "3000.5"},
+      {number: "2,18", floor: 3, room: 3, area: "21.5", cost: "3500.5"},
+      {number: "2,15", floor: 1, room: 3, area: "22", cost: "1900.5"},
+      {number: "2,18", floor: 1, room: 3, area: "21", cost: "2000"},
+      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
+      {number: "2,12", floor: 2, room: 2, area: "21.5", cost: "3000.5"},
+      {number: "2,18", floor: 3, room: 2, area: "21.5", cost: "3500.5"},
+      {number: "2,15", floor: 1, room: 2, area: "22", cost: "1900.5"},
+      {number: "2,18", floor: 2, room: 2, area: "21", cost: "2000"},
+      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
+      {number: "2,18", floor: 3, room: 3, area: "22.5", cost: "2000.5"},
+      {number: "2,12", floor: 3, room: 3, area: "21.5", cost: "3000.5"},
+      {number: "2,18", floor: 3, room: 3, area: "21.5", cost: "3500.5"},
+      {number: "2,15", floor: 1, room: 3, area: "22", cost: "1900.5"}
+   ];
+
+   function select (type, val) {
+      var el="";
+      if (type === "room") {
+         el = document.getElementById (type + val);
+         clearRoom ();
+         el.style.background = "#07c551";
+         room = val;
+      }
+      if (type === "floor") {
+         el = document.getElementById (type + val);
+         clearFloor ();
+         el.style.background = "#07c551";
+         floor = val;
+      }
+      screen ()
+   }
+
+   function toInput (type, val, event) {
+
+      var inputText = parseFloat (event.target.value.replace (",", "."));
+      if (type === "cost") inputText = parseInt (event.target.value.replace (/\s+/g, ""));
+
+      if (type === "cost" && isNaN (inputText)) {
+         document.getElementById (type + val).value = "";
+         return
+      }
+
+      if (type === "cost") document.getElementById (type + val).value = inputText.toLocaleString ("ru");
+      if (type === "area") document.getElementById (type + val).value = event.target.value.replace (/[-":'/a-zA-Zа-яА-Я ]/, '');
+
+      if (type === "cost" && val === 1) cost1 = inputText;
+      if (type === "cost" && val === 2) cost2 = inputText;
+      if (type === "area" && val === 1) area1 = inputText;
+      if (type === "area" && val === 2) area2 = inputText;
+
+      screen ()
+   }
+
+   function screen () {
+      var list = [];
+      for (var i = 0; i < data.length; i++) {
+         var el = data[i];
+         if (room !== 0 && el.room !== room) continue;
+         if (floor !== 0 && el.floor !== floor) continue;
+
+         if (cost1 !== 0 && parseFloat (el.cost) * 1000 < cost1) continue;
+         if (cost2 !== 0 && parseFloat (el.cost) * 1000 > cost2) continue;
+
+         if (area1 !== 0 && parseFloat (el.area) < area1) continue;
+         if (area2 !== 0 && parseFloat (el.area) > area2) continue;
+
+         list.push (el)
+      }
+
+      var html = "";
+      list.forEach (function (el) {
+         html += "<tr><td>" + el.number + "</td><td>" + el.floor + "</td><td>" + el.room + "</td><td>" + el.area + "</td><td>" + el.cost + "</td></tr>"
+      });
+
+      document.getElementById ("screen").innerHTML = html
+   }
+
+   function clearRoom () {
+      rooms = 0;
+      document.getElementById ("room1").style.background = "white";
+      document.getElementById ("room2").style.background = "white";
+      document.getElementById ("room3").style.background = "white";
+   }
+
+   function clearFloor () {
+      rooms = 0;
+      document.getElementById ("floor1").style.background = "white";
+      document.getElementById ("floor2").style.background = "white";
+      document.getElementById ("floor3").style.background = "white";
+   }
+
+   function clearAll () {
+      clearRoom ();
+      clearFloor ();
+      cost1 = cost2 = area1 = area2 = 0;
+      document.getElementById ("cost1").value = "";
+      document.getElementById ("cost2").value = "";
+      document.getElementById ("area1").value = "";
+      document.getElementById ("area2").value = "";
+      screen ()
+   }
+
+   function openFilter () {
+      var opener = document.getElementsByClassName ("b-filter_opener")[0];
+      var filterBody = document.getElementsByClassName ("b-filter-body")[0];
+      if (filterBody.style.display !== 'block') {
+         opener.style.padding = '10px 14px 16px 14px'
+         filterBody.style.display = 'block'
+      } else {
+         opener.style.padding = '10px 14px 6px'
+         filterBody.style.display = 'none'
+      }
+   }
 </script>
 </body>
 </html>
