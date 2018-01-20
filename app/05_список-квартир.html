@@ -270,10 +270,11 @@
       } else {
          div.src = "images/on.png"
          var text = '<div><h2>' + flat.room + '-комнатная квартира, ' + flat.area + ' м<sup>2</sup></h2></div>';
-         text += 'дом № ' + flat.number + '<br>';
-         text += 'кв.м' + flat.area + '<br>';
-         text += 'этаж  ' + flat.floor + '<br>';
-         text += 'стоимость  ' + (flat.cost * 1000).toLocaleString ("ru") + ' ₽<br>';
+         text += 'ДОМ № ' + flat.number + '<br>';
+         text += 'КВ.М' + flat.area + '<br>';
+         text += 'ЭТАЖ  ' + flat.floor + '<br>';
+         text += 'СТОИМОСТЬ  ' + (flat.cost * 1000).toLocaleString ("ru") + ' ₽<br>';
+         text += '<div class="b-button white"><a href="javascript:alert()">Оставить заявку</a></div>';
          document.getElementById ("info").innerHTML = text;
       }
 
