@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <script src="https://npmcdn.com/leaflet@1.0.3/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div class="page">
+    <div class="b-header">
+        <div class="b-header_arrow hide_"><a href="#" onclick="history.go(-1)"><img
+                src="images/arrow_line_left.png"/></a></div>
+        <img class="b-header_leaf" src="images/leaf_white.png">
+        <img class="b-header_logo" src="images/logo_white.png">
+        <a href="01_3-меню.html"><span class="b-header_button on"></span></a>
+    </div>
+
+    <div class="b-title-duck">
+        <span class="b-title-duck_span"></span>
+        <span class="b-title-duck_text">Подобрать квартиру</span>
+        <img class="b-title-duck_img" src="images/duck.png">
+    </div>
+
+
+    <div class="b-filter">
+        <span class="b-filter_buttons">
+            <span class="b-filter_buttons_on">Генплан</span><span class="b-filter_buttons_off">
+            <a href="05_список-квартир.html">Планировки</a></span>
+        </span>
+        <span class="b-filter_opener" onclick="document.location ='05_список-квартир.html?filter'">
+            <img src="images/filter.png">
+        </span>
+
+    </div>
+
+    <div id='leafletmap'></div>
+
+
+    <img class="b-unistroy" src="images/unistroy.png">
+
+    <div class="b-copyriht">&copy; 2017. Царёво Village</div>
+
+</div>
+
+<script>
+   'use strict';
+   var map,
+      maxBounds = [
+         [-140.625, 0],
+         [0, 250]
+      ],
+      mapInitZoom = 3,
+      map_w = 8000,
+      map_h = 2800,
+      map_z = 5,
+      maxZoom = 6;
+
+
+   map = L.map ('leafletmap', {
+      editable: true,
+      maxZoom: maxZoom,
+      minZoom: 3,
+      crs: L.CRS.Simple,
+      pin: true,
+      maxBounds: maxBounds,
+      pinCircle: true,
+      pinControl: true,
+      guideLayers: []
+   });
+
+   // tile layer
+   L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);
+   map.setView (map.unproject ([map_w / 2, map_h / 2], map_z), mapInitZoom);
+
+
+</script>
+</body>
+</html>

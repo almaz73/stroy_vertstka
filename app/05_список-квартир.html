@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="screen ()">
+<body onload="onLoad()">
 
 <div class="page">
     <div class="b-header">
@@ -27,7 +27,8 @@
 
     <div class="b-filter">
         <span class="b-filter_buttons">
-            <span class="b-filter_buttons_off">Генплан</span><span class="b-filter_buttons_on">Планировки</span>
+            <span class="b-filter_buttons_off"><a href="02_2-genplan.html">Генплан</a>
+            </span><span class="b-filter_buttons_on">Планировки</span>
         </span>
         <span class="b-filter_opener"  onclick="openFilter()">
             <img src="images/filter.png">
@@ -63,9 +64,9 @@
                 <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
             </thead>
             <tbody id="screen">
-                <tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
-                <tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
-                <tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
+                <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td><td>-</td></tr>-->
+                <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td><td>-</td></tr>-->
+                <!--<tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td><td>-</td></tr>-->
             </tbody>
         </table>
 
@@ -122,6 +123,12 @@
       {number: "2,18", floor: 1, room: 3, area: "110", cost: "7000", flat: "flat4.png"},
       {number: "2,18", floor: 2, room: 3, area: "90", cost: "6000.5", flat: "flat4.png"}
    ];
+
+   function onLoad () {
+      // открывать фильтр при открытии страницы
+      if (document.location.search.indexOf ("filter") > 0) openFilter ();
+      screen ();
+   }
 
    function select (type, val) {
       var el = "";
@@ -237,7 +244,7 @@
          opener.style.padding = '10px 14px 16px 14px';
          filterBody.style.display = 'block'
       } else {
-         opener.style.padding = '10px 14px 6px';
+         opener.style.padding = '10px 14px 7px';
          filterBody.style.display = 'none'
       }
    }
@@ -247,7 +254,7 @@
       var el = event.target.parentElement.innerHTML;
       var arr = el.substring (4, el.length - 5).split ("</td><td>");
       flat = {number: arr[0], floor: arr[1], room: arr[2], area: arr[3], cost: arr[4], flat: arr[5]};
-      var text = '<img class="b-img-center" style="width: 100%" src="/images/flat/' + arr[5] + '" />';
+      var text = '<img class="b-img-center" style="width: 100%" src="images/flat/' + arr[5] + '" />';
       text += '<br><br><div class="mebel">Мебель <img id="onOff" class="onOff" onclick="toDetails()" src="images/off.png"/></div>';
       text += '<div id="info" class="info"></div>';
       text += '<div><h2>Квартиры с такой планировкой</h2></div>';
@@ -265,10 +272,10 @@
       var boolean = div.src.indexOf ("on") > 0;
 
       if (boolean) {
-         div.src = "images/off.png"
+         div.src = "images/off.png";
          document.getElementById ("info").innerHTML = '<div>Квартира-студия, ' + flat.area + ' м<sup>2</sup> </div>';
       } else {
-         div.src = "images/on.png"
+         div.src = "images/on.png";
          var text = '<div><h2>' + flat.room + '-комнатная квартира, ' + flat.area + ' м<sup>2</sup></h2></div>';
          text += 'ДОМ № ' + flat.number + '<br>';
          text += 'КВ.М' + flat.area + '<br>';
