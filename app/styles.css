@@ -54,11 +54,12 @@ table {
 tr:nth-child(even) {
     background: #e4e4e4;
 }
-tr{
+
+tr {
     cursor: pointer;
 }
 
-tr td:last-child{
+tr td:last-child {
     display: none;
 }
 
@@ -154,9 +155,9 @@ th {
     margin-left: 0;
 }
 
-.b-button.wrap{
+.b-button.wrap {
 
-   width: 180px;
+    width: 180px;
     margin: 0 auto;
     line-height: 20px;
     padding: 6px 40px;
@@ -1064,3 +1065,11 @@ th {
     cursor: pointer;
 }
 
+.onOff {
+    margin: 0 0 -6px 10px;
+    cursor: pointer;
+}
+
+.info {
+    margin-top: 15px;
+}
