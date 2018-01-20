@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="screen ()">
 
 <div class="page">
     <div class="b-header">
@@ -57,31 +57,20 @@
 
 <br>
     <div class="b-document">
+        <div id="divFlat"></div>
         <table>
             <thead>
                 <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
             </thead>
             <tbody id="screen">
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
-                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
-                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
-                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
-                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
-                <tr><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>21,9</td><td>2 890</td></tr>
-                <tr><td>2,15</td><td>1</td><td>1</td><td>22,5</td><td>3 050</td></tr>
-                <tr><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>2 750</td></tr>
+                <tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td></tr>
+                <tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td></tr>
+                <tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td></tr>
             </tbody>
         </table>
+
+        <br>
+        <div id="button-planirovki" onclick="toListArea()" class="b-button white wrap">Показать планировки с такой же площадью</div>
     </div>
 
     <img class="b-unistroy" src="images/unistroy.png">
@@ -97,42 +86,45 @@
    var cost2 = 0;
    var area1 = 0;
    var area2 = 0;
+   var flat = {};
    var data = [
-      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
-      {number: "2,12", floor: 2, room: 1, area: "21.5", cost: "3000.5"},
-      {number: "2,18", floor: 1, room: 1, area: "21.5", cost: "3500.5"},
-      {number: "2,15", floor: 2, room: 1, area: "22", cost: "1900.5"},
-      {number: "2,18", floor: 2, room: 1, area: "21", cost: "2000"},
-      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
-      {number: "2,12", floor: 2, room: 2, area: "21.5", cost: "3000.5"},
-      {number: "2,18", floor: 3, room: 2, area: "21.5", cost: "3500.5"},
-      {number: "2,15", floor: 1, room: 2, area: "22", cost: "1900.5"},
-      {number: "2,18", floor: 2, room: 2, area: "21", cost: "2000"},
-      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 3, room: 3, area: "22.5", cost: "2000.5"},
-      {number: "2,12", floor: 3, room: 3, area: "21.5", cost: "3000.5"},
-      {number: "2,18", floor: 3, room: 3, area: "21.5", cost: "3500.5"},
-      {number: "2,15", floor: 1, room: 3, area: "22", cost: "1900.5"},
-      {number: "2,18", floor: 1, room: 3, area: "21", cost: "2000"},
-      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
-      {number: "2,12", floor: 2, room: 2, area: "21.5", cost: "3000.5"},
-      {number: "2,18", floor: 3, room: 2, area: "21.5", cost: "3500.5"},
-      {number: "2,15", floor: 1, room: 2, area: "22", cost: "1900.5"},
-      {number: "2,18", floor: 2, room: 2, area: "21", cost: "2000"},
-      {number: "2,18", floor: 1, room: 2, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 2, room: 3, area: "22.5", cost: "2000.5"},
-      {number: "2,18", floor: 3, room: 3, area: "22.5", cost: "2000.5"},
-      {number: "2,12", floor: 3, room: 3, area: "21.5", cost: "3000.5"},
-      {number: "2,18", floor: 3, room: 3, area: "21.5", cost: "3500.5"},
-      {number: "2,15", floor: 1, room: 3, area: "22", cost: "1900.5"}
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat2.png"},
+      {number: "2,12", floor: 2, room: 1, area: "21.5", cost: "3000.5", flat: "flat3.png"},
+      {number: "2,18", floor: 1, room: 1, area: "21.5", cost: "3500.5", flat: "flat2.png"},
+      {number: "2,15", floor: 2, room: 1, area: "22", cost: "1900.5", flat: "flat3.png"},
+      {number: "2,18", floor: 2, room: 1, area: "21", cost: "2000", flat: "flat2.png"},
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat3.png"},
+      {number: "2,18", floor: 1, room: 2, area: "50.5", cost: "2000.5", flat: "flat1.png"},
+      {number: "2,12", floor: 2, room: 2, area: "51.5", cost: "3000.5", flat: "flat1.png"},
+      {number: "2,18", floor: 3, room: 2, area: "51.5", cost: "3500.5", flat: "flat1.png"},
+      {number: "2,15", floor: 1, room: 2, area: "52", cost: "1900.5", flat: "flat1.png"},
+      {number: "2,18", floor: 2, room: 2, area: "51", cost: "2000", flat: "flat1.png"},
+      {number: "2,18", floor: 1, room: 2, area: "52.5", cost: "2000.5", flat: "flat1.png"},
+      {number: "2,18", floor: 2, room: 3, area: "100", cost: "7300.5", flat: "flat4.png"},
+      {number: "2,18", floor: 3, room: 3, area: "94", cost: "6700.5", flat: "flat4.png"},
+      {number: "2,12", floor: 3, room: 3, area: "101", cost: "7000.5", flat: "flat4.png"},
+      {number: "2,18", floor: 3, room: 3, area: "89", cost: "6500.5", flat: "flat4.png"},
+      {number: "2,15", floor: 1, room: 3, area: "102", cost: "6900.5", flat: "flat4.png"},
+      {number: "2,18", floor: 1, room: 3, area: "110", cost: "7000", flat: "flat4.png"},
+      {number: "2,18", floor: 2, room: 3, area: "90", cost: "6000.5", flat: "flat4.png"},
+      {number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat2.png"},
+      {number: "2,18", floor: 1, room: 2, area: "62.5", cost: "2000.5", flat: "flat1.png"},
+      {number: "2,12", floor: 2, room: 2, area: "61.5", cost: "3000.5", flat: "flat1.png"},
+      {number: "2,18", floor: 3, room: 2, area: "70.5", cost: "3500.5", flat: "flat1.png"},
+      {number: "2,15", floor: 1, room: 2, area: "62", cost: "1900.5", flat: "flat1.png"},
+      {number: "2,18", floor: 2, room: 2, area: "61", cost: "2000", flat: "flat1.png"},
+      {number: "2,18", floor: 1, room: 2, area: "72.5", cost: "2000.5", flat: "flat1.png"},
+      {number: "2,18", floor: 1, room: 3, area: "100", cost: "7300.5", flat: "flat4.png"},
+      {number: "2,18", floor: 3, room: 3, area: "94", cost: "6700.5", flat: "flat4.png"},
+      {number: "2,12", floor: 2, room: 3, area: "101", cost: "7000.5", flat: "flat4.png"},
+      {number: "2,18", floor: 3, room: 3, area: "89", cost: "6500.5", flat: "flat4.png"},
+      {number: "2,15", floor: 3, room: 3, area: "102", cost: "6900.5", flat: "flat4.png"},
+      {number: "2,18", floor: 1, room: 3, area: "110", cost: "7000", flat: "flat4.png"},
+      {number: "2,18", floor: 2, room: 3, area: "90", cost: "6000.5", flat: "flat4.png"}
    ];
 
    function select (type, val) {
-      var el="";
+      var el = "";
       if (type === "room") {
          el = document.getElementById (type + val);
          clearRoom ();
@@ -187,21 +179,41 @@
 
       var html = "";
       list.forEach (function (el) {
-         html += "<tr><td>" + el.number + "</td><td>" + el.floor + "</td><td>" + el.room + "</td><td>" + el.area + "</td><td>" + el.cost + "</td></tr>"
+         html += "<tr onclick=\"showFlat(event)\"><td>" + el.number + "</td><td>" + el.floor + "</td><td>" + el.room + "</td><td>" + el.area + "</td><td>" + el.cost + "</td><td>" + el.flat + "</td></tr>";
       });
 
-      document.getElementById ("screen").innerHTML = html
+      document.getElementById ("button-planirovki").style.display = "none";
+      document.getElementById ("divFlat").innerHTML = "";
+      document.getElementById ("screen").innerHTML = html;
+   }
+
+   function screen2 (flootArea) {
+
+      var list = [];
+      for (var i = 0; i < data.length; i++) {
+         var el = data[i];
+         if (flootArea === el.area) list.push (el)
+      }
+
+      var html = "";
+      list.forEach (function (el) {
+         html += "<tr onclick=\"showFlat(event)\"><td>" + el.number + "</td><td>" + el.floor + "</td><td>" + el.room + "</td><td>" + el.area + "</td><td>" + el.cost + "</td><td>" + el.flat + "</td></tr>";
+      });
+
+      // document.getElementById ("button-planirovki").style.display = "none";
+      // document.getElementById ("divFlat").innerHTML = "";
+      document.getElementById ("screen").innerHTML = html;
    }
 
    function clearRoom () {
-      rooms = 0;
+      room = 0;
       document.getElementById ("room1").style.background = "white";
       document.getElementById ("room2").style.background = "white";
       document.getElementById ("room3").style.background = "white";
    }
 
    function clearFloor () {
-      rooms = 0;
+      floor = 0;
       document.getElementById ("floor1").style.background = "white";
       document.getElementById ("floor2").style.background = "white";
       document.getElementById ("floor3").style.background = "white";
@@ -210,24 +222,47 @@
    function clearAll () {
       clearRoom ();
       clearFloor ();
-      cost1 = cost2 = area1 = area2 = 0;
+      cost1 = 0;
+      cost2 = 0;
+      area1 = 0;
+      area2 = 0;
       document.getElementById ("cost1").value = "";
       document.getElementById ("cost2").value = "";
       document.getElementById ("area1").value = "";
       document.getElementById ("area2").value = "";
-      screen ()
+      screen ();
    }
 
-   function openFilter () {
+   function openFilter (bool) {
       var opener = document.getElementsByClassName ("b-filter_opener")[0];
       var filterBody = document.getElementsByClassName ("b-filter-body")[0];
-      if (filterBody.style.display !== 'block') {
-         opener.style.padding = '10px 14px 16px 14px'
+      if ((!bool && !bool) && filterBody.style.display !== 'block') {
+         opener.style.padding = '10px 14px 16px 14px';
          filterBody.style.display = 'block'
       } else {
-         opener.style.padding = '10px 14px 6px'
+         opener.style.padding = '10px 14px 6px';
          filterBody.style.display = 'none'
       }
+   }
+
+   function showFlat (event) {
+      openFilter ("скрыть");
+      var el = event.target.parentElement.innerHTML;
+      var arr = el.substring (4, el.length - 5).split ("</td><td>");
+      flat = {number: arr[0], floor: arr[1], room: arr[2], area: arr[3], cost: arr[4], flat: arr[5]};
+      var text = '<img class="b-img-center" style="width: 100%" src="/images/flat/' + arr[5] + '" />';
+      text += '<div>Мебель </div>';
+      text += '<div>Квартира-студия, ' + arr[3] + ' м<sup>2</sup> </div>';
+      text += '<div><h2>Квартиры с такой планировкой</h2></div>';
+      document.getElementById ("divFlat").innerHTML = text;
+      document.getElementById ("button-planirovki").style.display = "block";
+   }
+
+   function toListArea () {
+      console.log (" flat = ", flat);
+      console.log(" varoom,floor, cost1, cost2, area1, area2l = ", room,floor, cost1, cost2, area1, area2 );
+      console.log(" flat.area = ", flat.area);
+      screen2 (flat.area)
    }
 </script>
 </body>
