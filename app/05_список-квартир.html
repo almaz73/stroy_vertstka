@@ -39,18 +39,18 @@
                 <button id="room1" onclick="select('room',1)">1</button>
                 <button id="room2" onclick="select('room',2)">2</button>
                 <button id="room3" onclick="select('room',3)">3</button>
-                <br>
+
                 <label>ЭТАЖ</label>
                 <button id="floor1" onclick="select('floor',1)">1</button>
                 <button id="floor2" onclick="select('floor',2)">2</button>
                 <button id="floor3" onclick="select('floor',3)">3</button>
-                <br><br>
+                <br>
                 СТОИМОСТЬ КВАРТИРЫ, ₽<br><br>
                 <input id="cost1" type="text" onkeyup="toInput('cost',1, event)"/> &nbsp; -- &nbsp;
-                <input id="cost2" type="text" onkeyup="toInput('cost',2, event)"/><br><br><br>
+                <input id="cost2" type="text" onkeyup="toInput('cost',2, event)"/><br><br>
                 ПЛОЩАДЬ, м<sup>2</sup><br><br>
                 <input id="area1" type="text" onkeyup="toInput('area',1, event)"/> &nbsp; -- &nbsp;
-                <input id="area2" type="text" onkeyup="toInput('area',2, event)"/><br><br><br>
+                <input id="area2" type="text" onkeyup="toInput('area',2, event)"/><br><br>
                 <div class="b-filter-body_clear" onclick="clearAll()">Сбросить фильтр</div>
             </div>
         </div>
@@ -251,7 +251,16 @@
 
    function showFlat (event) {
       openFilter ("скрыть");
-      var el = event.target.parentElement.innerHTML;
+      var tr = event.target.parentElement;
+      var el = tr.innerHTML;
+
+      // выбранную строку выделяем цветом
+      var trLine = tr.parentElement.children;
+      for (var i = 0; i < trLine.length; i++) {
+         trLine[i].style.color = "";
+      }
+      tr.style.color = "red";
+
       var arr = el.substring (4, el.length - 5).split ("</td><td>");
       flat = {number: arr[0], floor: arr[1], room: arr[2], area: arr[3], cost: arr[4], flat: arr[5]};
       var text = '<img class="b-img-center" style="width: 100%" src="images/flat/' + arr[5] + '" />';
@@ -264,7 +273,8 @@
    }
 
    function toListArea () {
-      screen2 (flat.area)
+      screen2 (flat.area);
+      document.getElementById ("button-planirovki").style.display = "none";
    }
 
    function toDetails () {
