@@ -93,7 +93,7 @@
    }
 
    // настривание ползунка
-   map.on ('moveend', function (e) {
+   map.on ('moveend', function () {
       var mapBoundX = 1999; // ширина генплана
       var widthDiv = 270; // ширина поля указателя зума
       var div = document.getElementsByClassName ('leaflet-zoom-boat')[0];
@@ -101,26 +101,39 @@
 
       var minX = Bounds.min.x;
       var maxX = Bounds.max.x;
-      var zoom = map.getScaleZoom (1);
-      var scale = 1;
-      if (zoom == 3) scale = 1;
-      if (zoom == 4) scale = 2;
-      if (zoom == 5) scale = 4;
-      if (zoom == 6) scale = 8;
+      var zoom = map.getZoom();
+      var scale =  Math.pow(2,zoom-3);
       var left = widthDiv * minX / mapBoundX / (scale);
       var width = (maxX - minX) * widthDiv / mapBoundX / (scale);
 
       div.style.width = (width - 2) + "px";
       div.style.left = left + "px";
+
+      if (zoom > 2 && zoom < 5) {
+         polygon.addTo(map);
+      } else {
+         map.removeLayer(polygon);
+      }
    });
 
    var LeafIcon = L.Icon.extend ({});
    var myIcon = new LeafIcon ({iconUrl: 'images/marker-infrastructure.png'});
 
    // добавлены указатели
-   L.marker ([-50, 130], {icon: myIcon}).addTo (map);
-   L.marker ([-40, 110], {icon: myIcon}).addTo (map);
-   L.marker ([-45, 115], {icon: myIcon}).addTo (map);
+   var marker1 = L.marker ([-50, 130], {icon: myIcon}).addTo (map);
+   var marker2 = L.marker ([-40, 110], {icon: myIcon}).addTo (map);
+   var marker3 = L.marker ([-45, 115], {icon: myIcon}).addTo (map);
+
+
+   L.DomEvent.addListener(marker1, 'click', function(){
+      document.location="http://localhost:3000/03_planirovki.html"
+   });
+   L.DomEvent.addListener(marker2, 'click', function(){
+      document.location="http://localhost:3000/03_planirovki.html"
+   });
+   L.DomEvent.addListener(marker3, 'click', function(){
+      document.location="http://localhost:3000/03_planirovki.html"
+   });
 
 
    // добавлен полигон
