@@ -29,7 +29,8 @@
 
     <div class="b-filter">
         <span class="b-filter_buttons">
-            <span class="b-filter_buttons_on">Генплан</span><a href="03_planirovki.html"><span class="b-filter_buttons_off">
+            <span class="b-filter_buttons_on">Генплан</span><a href="03_planirovki.html"><span
+                class="b-filter_buttons_off">
                 Планировки</span></a>
         </span>
         <span class="b-filter_opener" onclick="document.location ='05_список-квартир.html?filter'">
@@ -38,7 +39,19 @@
 
     </div>
 
-    <div id='leafletmap'></div>
+    <div id='leafletmap'>
+        <div class="leaflet-control">
+            <button onclick="plusMinus(-1)">
+                <img src="images/minus.png"/>
+            </button>
+            <button onclick="plusMinus(1)">
+                <img src="images/plus.png"/>
+            </button>
+            <div class="leaflet-zoom">
+                <div class="leaflet-zoom-boat"></div>
+            </div>
+        </div>
+    </div>
 
 
     <img class="b-unistroy" src="images/unistroy.png">
@@ -70,8 +83,50 @@
       maxBounds: maxBounds,
       pinCircle: true,
       pinControl: true,
-      guideLayers: []
+      guideLayers: [],
+      scrollWheelZoom: true
    });
+
+   function plusMinus (val) {
+      var currentZoom = map.getScaleZoom (1);
+      map.setZoom (currentZoom + val);
+   }
+
+   // настривание ползунка
+   map.on ('moveend', function (e) {
+      var mapBoundX = 1999; // ширина генплана
+      var widthDiv = 270; // ширина поля указателя зума
+      var div = document.getElementsByClassName ('leaflet-zoom-boat')[0];
+      var Bounds = map.getPixelBounds ();
+
+      var minX = Bounds.min.x;
+      var maxX = Bounds.max.x;
+      var zoom = map.getScaleZoom (1);
+      var scale = 1;
+      if (zoom == 3) scale = 1;
+      if (zoom == 4) scale = 2;
+      if (zoom == 5) scale = 4;
+      if (zoom == 6) scale = 8;
+      var left = widthDiv * minX / mapBoundX / (scale);
+      var width = (maxX - minX) * widthDiv / mapBoundX / (scale);
+
+      div.style.width = (width - 2) + "px";
+      div.style.left = left + "px";
+   });
+
+   var LeafIcon = L.Icon.extend ({});
+   var myIcon = new LeafIcon ({iconUrl: 'images/marker-infrastructure.png'});
+
+   // добавлены указатели
+   L.marker ([-50, 130], {icon: myIcon}).addTo (map);
+   L.marker ([-40, 110], {icon: myIcon}).addTo (map);
+   L.marker ([-45, 115], {icon: myIcon}).addTo (map);
+
+
+   // добавлен полигон
+   var latlngs = [[-58.578125, 94.828125], [-60.828125, 94.9375], [-68.78125, 108.171875], [-65.1875, 125.78125], [-62.734375, 125.828125], [-56.140625, 111.5]];
+   var polygon = L.polygon (latlngs, {color: 'red'}).addTo (map);
+   map.fitBounds (polygon.getBounds ());
 
    // tile layer
    L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);

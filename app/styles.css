@@ -75,7 +75,7 @@ th {
 }
 
 /*begin calculator*/
-.calc{
+.calc {
     background: #61625d;
     padding: 25px;
     text-align: left;
@@ -85,21 +85,22 @@ th {
     overflow: hidden;
     font-size: 15px;
 }
-.calc label{
+
+.calc label {
     color: white;
     display: block;
     margin: 12px 0 0;
     position: relative;
 }
 
-.calc .label_after{
+.calc .label_after {
     position: absolute;
-    top:20px;
-    right:10px;
+    top: 20px;
+    right: 10px;
     font-size: 30px;
 }
 
-.calc input{
+.calc input {
     background: #494a44;
     padding: 12px 12px 5px;
     border: none;
@@ -108,11 +109,13 @@ th {
     margin: 6px 0 5px 0;
     width: 250px;
 }
-.calc_buttons{
+
+.calc_buttons {
     width: 320px;
     margin: 5px 0 20px -1px;
 }
-.calc_buttons div{
+
+.calc_buttons div {
     background: white;
     display: inline-block;
     width: 50px;
@@ -121,10 +124,12 @@ th {
     margin: 6px 3px;
     cursor: pointer;
 }
-.calc_buttons .active{
+
+.calc_buttons .active {
     background: #18c746;
 }
-.calc-total{
+
+.calc-total {
     font-family: Geneva, Arial, Helvetica, sans-serif;
     font-size: 22px;
     width: 320px;
@@ -134,26 +139,30 @@ th {
     max-width: 400px;
     margin: 0 auto;
 }
-.calc-total div{
+
+.calc-total div {
     margin: 0 30px;
     font-size: 32px;
     font-weight: bold;
 }
-.calc-apply p, .calc-total p{
+
+.calc-apply p, .calc-total p {
     margin: 0 30px;
 }
 
-.calc-apply{
+.calc-apply {
     font-family: Geneva, Arial, Helvetica, sans-serif;
     max-width: 320px;
     margin: 23px auto;
     width: 100%;
     text-align: left;
 }
-.calc-apply .little{
+
+.calc-apply .little {
     font-size: 14px;
 }
-.apply-button{
+
+.apply-button {
     background: #18c746;
     color: white;
     width: 150px;
@@ -164,6 +173,7 @@ th {
     text-shadow: 1px 2px 7px #444;
     cursor: pointer;
 }
+
 /*end calculator*/
 
 .page {
@@ -1212,12 +1222,6 @@ th {
     display: none;
 }
 
-#leafletmap {
-    margin-top: 30px;
-    width: 100%;
-    height: 440px;
-}
-
 .plans div {
     padding: 26px 0;
 }
@@ -1257,3 +1261,56 @@ th {
     padding: 6px;
     cursor: pointer;
 }
+
+/**begin leaflet**/
+
+#leafletmap {
+    margin-top: 30px;
+    width: 100%;
+    height: 440px;
+}
+
+.leaflet-control-container {
+    display: none;
+}
+
+.leaflet-control {
+    position: absolute;
+    top: 350px;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+
+}
+
+.leaflet-control button {
+    width: 54px;
+    height: 54px;
+    border-radius: 54px;
+    border: 0;
+    background: white;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.leaflet-zoom {
+    margin: 0 auto;
+    background: white;
+    width: 270px;
+    height: 9px;
+    border-radius: 9px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.leaflet-zoom-boat {
+    position: absolute;
+    width: 100px;
+    height: 7px;
+    border-radius: 7px;
+    background: #07c551;
+    margin: 1px;
+    left: 30px;
+}
+
+/**end leaflet**/
