@@ -1,13 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Временный </title>
-
-    <meta http-equiv="refresh" content="0;01_3-меню.html">
-
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Царёво Village</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-EMPTY
+
+<div class="page">
+    <div class="b-header">
+        <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img src="images/arrow_line_left.png"/></span></a>
+        <img class="b-header_leaf" src="images/leaf_white.png">
+        <img class="b-header_logo" src="images/logo_white.png">
+        <a href="01_3-меню.html"><span class="b-header_button on"></span></a>
+    </div>
+
+
+
+    <div class="b-img-center">
+        <img src="images/pic/main_1.png" />
+    </div>
+    <br><br>
+
+    <div class="b-title-hedgehog2">
+        <span class="b-title-hedgehog2_span"></span>
+        <span class="b-title-hedgehog2_text">Галерея</span>
+        <img class="b-title-hedgehog2_img" src="images/hedgehog.png">
+    </div>
+
+    <div class="b-gallery">
+        <div onclick="toGo(-1)" class="b-gallery_button left">
+            <div>
+                <img src="images/arrow_left.png"/>
+            </div>
+        </div>
+        <div onclick="toGo(1)" class="b-gallery_button right">
+            <div>
+                <img src="images/arrow_right.png"/>
+            </div>
+        </div>
+        <img id="b-gallery-show" src="images/gallery/gal1.png">
+    </div>
+
+    <a href="05_список-квартир.html">
+        <div class="b-button main">
+            Выбрать квартиру
+        </div>
+    </a>
+
+    <br>
+    <div class="b-title-bird3">
+        <span class="b-title-bird3_span"></span>
+        <span class="b-title-bird3_text">Инфра-структура</span>
+        <img class="b-title-bird3_img" src="images/bird.png">
+    </div>
+    <div class="b-img-center main">
+        <img src="images/pic/main_2.png" />
+    </div>
+    <a href="11_infrastructure.html">
+        <div class="b-button main">
+            Подробнее
+        </div>
+    </a>
+
+
+
+    <br><br>
+    <div class="b-img-center main">
+        <img src="images/pic/main_3.png" />
+    </div>
+
+    <a href="11_infrastructure.html">
+        <div class="b-button main">
+            Подробнее
+        </div>
+    </a>
+
+
+    <div class="b-title-baterflay">
+        <span class="b-title-baterflay_span"></span>
+        <span class="b-title-baterflay_text">Камеры- онлайн</span>
+        <img class="b-title-baterflay_img" src="images/baterflay.png">
+    </div>
+
+    <div class="b-video">
+        <div class="b-video_arrow_circle">
+            <a href="assets/camera.html"><img src="images/arrow_video.png"></a>
+        </div>
+        <img class="b-video_img" src="images/pic/main_7.png">
+    </div>
+
+    <a href="09_2-online-camera.html">
+        <div class="b-button main">
+            Камеры онлайн
+        </div>
+    </a>
+
+
+    <img class="b-unistroy" src="images/unistroy.png">
+
+    <div class="b-copyriht">&copy; 2017. Царёво Village</div>
+
+
+</div>
+
+<script>
+   "use strict";
+   var galleryArr = ["gal1.png", "gal2.png", "gal3.png", "gal4.png"];
+   var path = "images/gallery/";
+   var len = galleryArr.length-1;
+   var currentId = 0;
+   function toGo (val) {
+      currentId += val;
+      if (currentId > len) currentId = len;
+      if (currentId < 0) currentId = 0;
+      document.getElementById ('b-gallery-show').src = path + galleryArr[currentId];
+   }
+</script>
 </body>
 </html>
