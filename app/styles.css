@@ -1312,14 +1312,14 @@ th {
     left: 30px;
 }
 
-
-.leaflet-div-icon{
+.leaflet-div-icon {
     background: none !important;
     border: none !important;
 }
+
 img.leafletFlatMark {
-    margin-left:-20px;
-    margin-top: -50px ;
+    margin-left: -20px;
+    margin-top: -50px;
 }
 
 span.leafletFlatMark {
@@ -1332,30 +1332,31 @@ span.leafletFlatMark {
     width: 50px;
     text-align: center;
 }
-span.leafletFlatMark p{
+
+span.leafletFlatMark p {
     font-size: 11px;
     margin-top: -5px;
     font-weight: normal;
 }
 
-img.leafletDarkMark{
-    margin-left:-35px;
-    margin-top: -55px ;
+img.leafletDarkMark {
+    margin-left: -35px;
+    margin-top: -55px;
 }
 
 span.leafletDarkMark {
     position: absolute;
-    font-size: 11px;
-    color: yellow;
-    top: -42px;
-    left:-26px;
-    width: 64px;
-    text-align: center;
-}
-span.leafletDarkMark p{
-    margin-top: -2px;
-    font-weight: normal;
+    font-size: 9px;
     color: white;
+    top: -48px;
+    left: -26px;
+    width: 44px;
+    text-align: center;
+    padding: 10px;
+}
+
+span.leafletDarkMark .gold {
+    color: yellow;
 }
 
 /**end leaflet**/

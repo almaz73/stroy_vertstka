@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.3/dist/leaflet.css"/>
     <script src="https://npmcdn.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
 </head>
 <body>
 
@@ -39,6 +45,8 @@
 
     </div>
 
+    <div id="price-filter"></div>
+
     <div id='leafletmap'>
         <div class="leaflet-control">
             <button onclick="plusMinus(-1)">
@@ -60,105 +68,8 @@
 
 </div>
 
-<script>
-   'use strict';
-   var map,
-      maxBounds = [
-         [-140.625, 0],
-         [0, 250]
-      ],
-      mapInitZoom = 3,
-      map_w = 8000,
-      map_h = 2800,
-      map_z = 5,
-      maxZoom = 6;
-
-
-   map = L.map ('leafletmap', {
-      editable: false,
-      maxZoom: maxZoom,
-      minZoom: 3,
-      crs: L.CRS.Simple,
-      pin: true,
-      maxBounds: maxBounds,
-      pinCircle: true,
-      pinControl: true,
-      guideLayers: [],
-      scrollWheelZoom: true
-   });
-
-   function plusMinus (val) {
-      var currentZoom = map.getScaleZoom (1);
-      map.setZoom (currentZoom + val);
-   }
-
-   // настривание ползунка
-   map.on ('moveend', function () {
-      var mapBoundX = 1999; // ширина генплана
-      var widthDiv = 270; // ширина поля указателя зума
-      var div = document.getElementsByClassName ('leaflet-zoom-boat')[0];
-      var Bounds = map.getPixelBounds ();
-
-      var minX = Bounds.min.x;
-      var maxX = Bounds.max.x;
-      var zoom = map.getZoom();
-      var scale =  Math.pow(2,zoom-3);
-      var left = widthDiv * minX / mapBoundX / (scale);
-      var width = (maxX - minX) * widthDiv / mapBoundX / (scale);
-
-      div.style.width = (width - 2) + "px";
-      div.style.left = left + "px";
-
-      if (zoom > 2 && zoom < 5) {
-         polygon.addTo(map);
-      } else {
-         map.removeLayer(polygon);
-      }
-   });
-
-   var LeafIcon = L.Icon.extend ({});
-   var myIcon = new LeafIcon ({iconUrl: 'images/marker-infrastructure.png'});
-
-   var myIcon4 = new L.DivIcon({
-      html: '<img class="leafletFlatMark" src="images/point.png"/>'+
-      '<span class="leafletFlatMark">2.18<p>ДОМ</p></span>'
-   });
-   var myIcon2 = new L.DivIcon({
-      html: '<img class="leafletFlatMark" src="images/point.png"/>'+
-      '<span class="leafletFlatMark">2.17<p>ДОМ</p></span>'
-   });
-
-   var myIcon3 = new L.DivIcon({
-      html: '<img class="leafletDarkMark" src="images/point2.png"/>'+
-      '<span class="leafletDarkMark">ДОМА<p>СДАНЫ</p></span>'
-   });
-
-   // добавлены указатели
-   var marker1 = L.marker ([-50, 130], {icon: myIcon}).addTo (map);
-   var marker2 = L.marker ([-40, 110], {icon: myIcon2}).addTo (map);
-   var marker3 = L.marker ([-53, 117], {icon: myIcon4}).addTo (map);
-
-
-   L.DomEvent.addListener(marker1, 'click', function(){
-      document.location="03_planirovki.html"
-   });
-   L.DomEvent.addListener(marker2, 'click', function(){
-      document.location="03_planirovki.html"
-   });
-   L.DomEvent.addListener(marker3, 'click', function(){
-      document.location="03_planirovki.html"
-   });
-
-
-   // добавлен полигон
-   var latlngs = [[-58.578125, 94.828125], [-60.828125, 94.9375], [-68.78125, 108.171875], [-65.1875, 125.78125], [-62.734375, 125.828125], [-56.140625, 111.5]];
-   var polygon = L.polygon (latlngs, {color: 'red'}).addTo (map);
-   map.fitBounds (polygon.getBounds ());
-
-   // tile layer
-   L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);
-
-
-</script>
+<script src="js/api.js"></script>
+<script src="js/initMap.js"></script>
+<script src="js/genplan.js"></script>
 </body>
 </html>
