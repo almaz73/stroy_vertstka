@@ -258,7 +258,6 @@ th {
 }
 
 .b-button.main {
-    margin-top: 0;
     box-shadow: 0 7px 15px #aaa;
     text-shadow: 0 1px 5px #555;
     margin-top: -3px;
@@ -1311,6 +1310,52 @@ th {
     background: #07c551;
     margin: 1px;
     left: 30px;
+}
+
+
+.leaflet-div-icon{
+    background: none !important;
+    border: none !important;
+}
+img.leafletFlatMark {
+    margin-left:-20px;
+    margin-top: -50px ;
+}
+
+span.leafletFlatMark {
+    position: absolute;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    top: -43px;
+    left: -20px;
+    width: 50px;
+    text-align: center;
+}
+span.leafletFlatMark p{
+    font-size: 11px;
+    margin-top: -5px;
+    font-weight: normal;
+}
+
+img.leafletDarkMark{
+    margin-left:-35px;
+    margin-top: -55px ;
+}
+
+span.leafletDarkMark {
+    position: absolute;
+    font-size: 11px;
+    color: yellow;
+    top: -42px;
+    left:-26px;
+    width: 64px;
+    text-align: center;
+}
+span.leafletDarkMark p{
+    margin-top: -2px;
+    font-weight: normal;
+    color: white;
 }
 
 /**end leaflet**/

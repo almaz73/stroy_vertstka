@@ -75,7 +75,7 @@
 
 
    map = L.map ('leafletmap', {
-      editable: true,
+      editable: false,
       maxZoom: maxZoom,
       minZoom: 3,
       crs: L.CRS.Simple,
@@ -119,20 +119,34 @@
    var LeafIcon = L.Icon.extend ({});
    var myIcon = new LeafIcon ({iconUrl: 'images/marker-infrastructure.png'});
 
+   var myIcon4 = new L.DivIcon({
+      html: '<img class="leafletFlatMark" src="images/point.png"/>'+
+      '<span class="leafletFlatMark">2.18<p>ДОМ</p></span>'
+   });
+   var myIcon2 = new L.DivIcon({
+      html: '<img class="leafletFlatMark" src="images/point.png"/>'+
+      '<span class="leafletFlatMark">2.17<p>ДОМ</p></span>'
+   });
+
+   var myIcon3 = new L.DivIcon({
+      html: '<img class="leafletDarkMark" src="images/point2.png"/>'+
+      '<span class="leafletDarkMark">ДОМА<p>СДАНЫ</p></span>'
+   });
+
    // добавлены указатели
    var marker1 = L.marker ([-50, 130], {icon: myIcon}).addTo (map);
-   var marker2 = L.marker ([-40, 110], {icon: myIcon}).addTo (map);
-   var marker3 = L.marker ([-45, 115], {icon: myIcon}).addTo (map);
+   var marker2 = L.marker ([-40, 110], {icon: myIcon2}).addTo (map);
+   var marker3 = L.marker ([-53, 117], {icon: myIcon4}).addTo (map);
 
 
    L.DomEvent.addListener(marker1, 'click', function(){
-      document.location="http://localhost:3000/03_planirovki.html"
+      document.location="03_planirovki.html"
    });
    L.DomEvent.addListener(marker2, 'click', function(){
-      document.location="http://localhost:3000/03_planirovki.html"
+      document.location="03_planirovki.html"
    });
    L.DomEvent.addListener(marker3, 'click', function(){
-      document.location="http://localhost:3000/03_planirovki.html"
+      document.location="03_planirovki.html"
    });
 
 
@@ -143,7 +157,6 @@
 
    // tile layer
    L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);
-   map.setView (map.unproject ([map_w / 2, map_h / 2], map_z), mapInitZoom);
 
 
 </script>
