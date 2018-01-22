@@ -713,6 +713,40 @@ th {
 
 /*end b-title-duck2*/
 
+/*begin b-title-duck3*/
+.b-title-duck3 {
+    position: relative;
+    height: 97px;
+    /*overflow-y: hidden;*/
+}
+
+.b-title-duck3_span {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: #b3e3fa;
+    width: 235px;
+    height: 224px;
+}
+
+.b-title-duck3_img {
+    position: absolute;
+    right: 0;
+    top: 7px;
+
+}
+
+.b-title-duck3_text {
+    position: absolute;
+    right: 55px;
+    top: 14px;
+    font-size: 30px;
+    font-family: "Museo Cyrillic Bold", Geneva, Arial, Helvetica, sans-serif;
+    width: 250px;
+}
+
+/*end b-title-duck3*/
+
 /*begin b-title-baterflay*/
 .b-title-baterflay {
     position: relative;
@@ -1360,3 +1394,52 @@ span.leafletDarkMark .gold {
 }
 
 /**end leaflet**/
+
+/*.swiper-container{*/
+/*margin: -4px 0 -8px 0;*/
+/*}*/
+
+.swiper-green {
+    text-align: center;
+}
+
+.swiper-green .swiper-pagination-bullet {
+    background: white;
+    width: 9px;
+    height: 9px;
+    opacity: 0.7;
+}
+
+.swiper-green .swiper-pagination-bullet-active {
+    background: #17dd64;
+}
+
+.swiper-little-green .swiper-pagination-bullet-active {
+    background: green;
+}
+
+.swiper-green.flats p {
+    text-align: left;
+    margin-left: 26px;
+    margin-bottom: 25px;
+}
+
+.main-yellow {
+    position: absolute;
+    margin: 0 auto;
+    top: 374px;
+    margin-bottom: -10px;
+    right: 50%;
+    margin-right: -138px;
+    text-align: center;
+    background: #fcf560;
+    width: 277px;
+    height: 130px;
+}
+
+.swiper-little-green p {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: left;
+    padding: 0 14px;
+}

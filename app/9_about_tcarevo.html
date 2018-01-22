@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Царёво Village</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="swiper/css/swiper.min.css">
+    <script src="swiper/js/swiper.min.js"></script>
 </head>
 <body>
 
@@ -75,10 +77,11 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_txt_buttom">ЖК «Царево Village» – забота об окружающей среде и комфортная среда для жизни</div>
+                <div class="b-infra_txt_buttom">ЖК «Царево Village» – забота об окружающей среде и комфортная среда для
+                    жизни
+                </div>
             </div>
         </div>
-
 
 
         <div class="b-infra_div">
@@ -87,10 +90,11 @@
                 <div class="b-infra_symbol">
                     <img src="images/icons/infra1.svg"/>
                 </div>
-                <div class="b-infra_txt_buttom">Естественный природный ландшафт: озеро для отличной рыбалки, лес в шаговой доступности</div>
+                <div class="b-infra_txt_buttom">Естественный природный ландшафт: озеро для отличной рыбалки, лес в
+                    шаговой доступности
+                </div>
             </div>
         </div>
-
 
 
         <div class="b-infra_div">
@@ -104,7 +108,6 @@
         </div>
 
 
-
         <div class="b-infra_div">
             <img class="b-infra_img" src="images/pic/ab4.png"/>
             <div class="b-infra_p">
@@ -114,7 +117,6 @@
                 <div class="b-infra_txt_buttom">Собственный маршрутный автобус</div>
             </div>
         </div>
-
 
 
         <div class="b-infra_div">
@@ -131,7 +133,9 @@
 
     <div class="b-trigger2">
         <div><a href="09_2-online-camera.html"> Онлайн- камеры</a></div>
-        <a href="05_список-квартир.html"><div>Подобрать квартиру</div></a>
+        <a href="05_список-квартир.html">
+            <div>Подобрать квартиру</div>
+        </a>
     </div>
 
     <div class="b-title-hedgehog2">
@@ -140,18 +144,18 @@
         <img class="b-title-hedgehog2_img" src="images/hedgehog.png">
     </div>
 
-    <div class="b-gallery">
-        <div onclick="toGo(-1)" class="b-gallery_button left">
-            <div>
-                <img src="images/arrow_left.png"/>
-            </div>
+    <div class="swiper-green  swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/gallery/gal1.png"/></div>
+            <div class="swiper-slide"><img src="images/gallery/gal2.png"/></div>
+            <div class="swiper-slide"><img src="images/gallery/gal3.png"/></div>
+            <div class="swiper-slide"><img src="images/gallery/gal4.png"/></div>
         </div>
-        <div onclick="toGo(1)" class="b-gallery_button right">
-            <div>
-                <img src="images/arrow_right.png"/>
-            </div>
-        </div>
-        <img id="b-gallery-show" src="images/gallery/gal1.png">
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!--&lt;!&ndash; Add Navigation &ndash;&gt;-->
+        <!--<div class="swiper-button-prev"></div>-->
+        <!--<div class="swiper-button-next"></div>-->
     </div>
 
     <img class="b-unistroy" src="images/unistroy.png">
@@ -162,18 +166,12 @@
 </div>
 
 <script>
-   "use strict";
-   var galleryArr = ["gal1.png", "gal2.png", "gal3.png", "gal4.png"];
-   var path = "images/gallery/";
-   var len = galleryArr.length - 1;
-   var currentId = 0;
-
-   function toGo (val) {
-      currentId += val;
-      if (currentId > len) currentId = len;
-      if (currentId < 0) currentId = 0;
-      document.getElementById ('b-gallery-show').src = path + galleryArr[currentId];
-   }
+   var swiper = new Swiper ('.swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev'
+   });
 </script>
 </body>
 </html>
