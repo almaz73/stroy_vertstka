@@ -36,7 +36,7 @@ L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);
 
 function initMap (res) {
 
-   if (!res || (!res || !res.msgtxt)) {
+   if (!res) {
       alert ("не получены данные для карты")
    }
 
