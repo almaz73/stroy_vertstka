@@ -27,10 +27,10 @@
 
     <div class="b-filter">
         <span class="b-filter_buttons">
-            <a href="02_2-genplan.html"><span class="b-filter_buttons_off">Генплан
+            <a href="javascript:toGenPlan()"><span class="b-filter_buttons_off">Генплан
             </span></a><a href="03_planirovki.html"><span class="b-filter_buttons_on">Планировки</span></a>
         </span>
-        <span class="b-filter_opener"  onclick="openFilter()">
+        <span class="b-filter_opener" onclick="openFilter()">
             <img src="images/filter.png">
         </span>
         <div class="b-filter-body">
@@ -56,22 +56,30 @@
         </div>
     </div>
 
-<br>
+    <br>
     <div class="b-document">
         <div id="divFlat"></div>
         <table>
             <thead>
-                <tr><th>Д.№</th><th>ЭТ.</th><th>КОМН.</th><th>ПЛ.М<sup>2</sup></th><th width="65px">СТОИМ., Т.₽</th></tr>
+            <tr>
+                <th>Д.№</th>
+                <th>ЭТ.</th>
+                <th>КОМН.</th>
+                <th>ПЛ.М<sup>2</sup></th>
+                <th width="65px">СТОИМ., Т.₽</th>
+            </tr>
             </thead>
             <tbody id="screen">
-                <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td><td>-</td></tr>-->
-                <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td><td>-</td></tr>-->
-                <!--<tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td><td>-</td></tr>-->
+            <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td><td>-</td></tr>-->
+            <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td><td>-</td></tr>-->
+            <!--<tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td><td>-</td></tr>-->
             </tbody>
         </table>
 
         <br>
-        <div id="button-planirovki" onclick="toListArea()" class="b-button white wrap">Показать планировки с такой же площадью</div>
+        <div id="button-planirovki" onclick="toListArea()" class="b-button white wrap">Показать планировки с такой же
+            площадью
+        </div>
     </div>
 
     <img class="b-unistroy" src="images/unistroy.png">
@@ -88,6 +96,7 @@
    var area1 = 0;
    var area2 = 0;
    var flat = {};
+   var jsonAsk = {};
    var data = [
       {id: 1, number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat2.png"},
       {id: 2, number: "2,12", floor: 2, room: 1, area: "21.5", cost: "3000.5", flat: "flat3.png"},
@@ -192,6 +201,15 @@
       document.getElementById ("button-planirovki").style.display = "none";
       document.getElementById ("divFlat").innerHTML = "";
       document.getElementById ("screen").innerHTML = html;
+
+      if (room) jsonAsk.rooms = [room];
+      if (cost1 || cost2) jsonAsk.cost = [cost1, cost2];
+      if (area1 || area2) jsonAsk.square = [area1, area2];
+      if (floor) jsonAsk.floors = [floor];
+   }
+
+   function toGenPlan () {
+      document.location = '02_2-genplan.html?act=getGenplanJSON&data=' + JSON.stringify (jsonAsk)
    }
 
    function screen2 (flootArea) {
@@ -269,7 +287,7 @@
       text += '<div><h2>Квартиры с такой планировкой</h2></div>';
       document.getElementById ("divFlat").innerHTML = text;
       document.getElementById ("button-planirovki").style.display = "block";
-      document.getElementById ("info").innerHTML ='<div>Квартира-студия, ' + arr[3] + ' м<sup>2</sup> </div>';
+      document.getElementById ("info").innerHTML = '<div>Квартира-студия, ' + arr[3] + ' м<sup>2</sup> </div>';
    }
 
    function toListArea () {

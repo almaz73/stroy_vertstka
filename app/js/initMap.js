@@ -11,8 +11,6 @@ var poligons = [];
 var markersPoligon = [];
 var markers = [];
 
-console.log(" L.CRS.Simple, = ", L.CRS.Simple);
-
 map = L.map ('leafletmap', {
    editable: false,
    maxZoom: maxZoom,
@@ -37,9 +35,13 @@ L.tileLayer ('http://tsarevodom.ru/tiles/{z}-{x}-{y}.jpg', {}).addTo (map);
 
 
 function initMap (res) {
-   addPoligons (res.zoomId[4].areas);
-   addMarkers (res.zoomId[5].areas);
 
+   if (!res || (!res || !res.msgtxt)) {
+      alert ("не получены данные для карты")
+   }
+
+   if (res.zoomId[4]) addPoligons (res.zoomId[4].areas);
+   if (res.zoomId[5]) addMarkers (res.zoomId[5].areas);
 
    map.on ('moveend', function () {
       var mapBoundX = 1999; // ширина генплана
@@ -109,7 +111,9 @@ function addMarkers (areas) {
 
          // console.log (" item = ", item); // todo в маркер внести данные
          var mark = L.marker (latlang, {icon: myIcon2}).addTo (map);
-         L.DomEvent.addListener(mark, 'click', function(){document.location="03_planirovki.html"});
+         L.DomEvent.addListener (mark, 'click', function () {
+            document.location = "03_planirovki.html"
+         });
          markers.push (mark);
       }
    }
