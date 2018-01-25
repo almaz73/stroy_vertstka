@@ -9,18 +9,55 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="swiper/css/swiper.min.css">
     <script src="swiper/js/swiper.min.js"></script>
+    <script src="fancybox/jquery-1.4.3.min.js"></script>
 </head>
 <body>
 
-<div class="page">
+<!--menu-->
+<div id="menu">
     <div class="b-header">
         <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img
                 src="images/arrow_line_left.png"/></span></a>
         <img class="b-header_leaf" src="images/leaf_white.png">
         <img class="b-header_logo" src="images/logo_white.png">
-        <a href="01_3-меню.html"><span class="b-header_button on"></span></a>
+        <a href="#" id="b-header_menu-close"><span class="b-header_button off"/></a>
     </div>
+    <div class="b-menu">
+        <a href="05_список-квартир.html">
+            <div class="b-button">
+                Подобрать квартиру
+            </div>
+        </a>
+        <div class="b-menu_phone">+7 (843) 295-55-46</div>
+        <div class="b-menu_lest">
+            <a href="11_infrastructure.html">Инфраструктура</a>
+            <a href="9_about_tcarevo.html">Преимущества Царёво Village</a>
+            <a href="12_About_company.html">О застройщике</a>
+            <a href="06_news.html">Новости</a>
+            <a href="09_2-online-camera.html">Онлайн-камеры</a>
+            <a href="09_3-history.html">История строительства</a>
+            <a href="08_documents.html">Документация</a>
+            <a href="10_1-banks.html">Ипотека</a>
+            <a href="07_contacs_office.html">Контакты</a>
+        </div>
+        <div class="b-email"><a href="mailto:reelt@unistroyrf.ru">reelt@unistroyrf.ru</a></div>
+    </div>
+</div>
+<!--end menu-->
 
+<div class="page">
+    <!--фиксированный заголовок-->
+    <div class="b-header-fixed">
+        <div class="b-header">
+            <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img
+                    src="images/arrow_line_left.png"/></span></a>
+            <img class="b-header_leaf" src="images/leaf_white.png">
+            <img class="b-header_logo" src="images/logo_white.png">
+            <a id="open-menu" href="01_3-меню.html" ><span class="b-header_button on"></span></a>
+        </div>
+    </div>
+    <div class="empty-space-under-menu"></div>
+    <!--end фиксированный заголовок-->
 
     <div class="b-img-center">
         <div class="main-yellow">
@@ -170,6 +207,16 @@
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev'
    });
+
+
+
+  // Эта подмена нужна, чтобы поисковики нашли все страницы, файл меню не удаляем
+  var url = $ ("a#open-menu").attr ('href').replace ("01_3-меню.html", "#");
+  $ ("a#open-menu").attr ("href", url);
+
+  var menu = $ ('#menu');
+  $ ("a#open-menu").click (function () {menu.show ()});
+  $ ('a#b-header_menu-close').click (function () {menu.hide ()});
 </script>
 </body>
 </html>
