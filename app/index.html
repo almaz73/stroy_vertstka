@@ -9,19 +9,24 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="swiper/css/swiper.min.css">
     <script src="swiper/js/swiper.min.js"></script>
-    <script src="fancybox/jquery-1.4.3.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 
-<!--menu-->
-<div id="menu">
+<!--фиксированный заголовок-->
+<div class="b-header-fixed">
     <div class="b-header">
         <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img
                 src="images/arrow_line_left.png"/></span></a>
         <img class="b-header_leaf" src="images/leaf_white.png">
         <img class="b-header_logo" src="images/logo_white.png">
-        <a href="#" id="b-header_menu-close"><span class="b-header_button off"/></a>
+        <a id="open-menu" href="01_3-меню.html"><span class="b-header_button on"></span></a>
     </div>
+</div>
+<div class="empty-space-under-menu"></div>
+<!--end фиксированный заголовок-->
+<!--menu-->
+<div id="menu">
     <div class="b-menu">
         <a href="05_список-квартир.html">
             <div class="b-button">
@@ -46,19 +51,6 @@
 <!--end menu-->
 
 <div class="page">
-    <!--фиксированный заголовок-->
-    <div class="b-header-fixed">
-        <div class="b-header">
-            <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img
-                    src="images/arrow_line_left.png"/></span></a>
-            <img class="b-header_leaf" src="images/leaf_white.png">
-            <img class="b-header_logo" src="images/logo_white.png">
-            <a id="open-menu" href="01_3-меню.html" ><span class="b-header_button on"></span></a>
-        </div>
-    </div>
-    <div class="empty-space-under-menu"></div>
-    <!--end фиксированный заголовок-->
-
     <div class="b-img-center">
         <div class="main-yellow">
             <div class="swiper-little-green  swiper-container">
@@ -201,22 +193,32 @@
 
 </div>
 <script>
-   var swiper = new Swiper ('.swiper-container', {
+   "use strict";
+   new Swiper ('.swiper-container', {
       pagination: '.swiper-pagination',
       paginationClickable: true,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev'
    });
 
-
-
-  // Эта подмена нужна, чтобы поисковики нашли все страницы, файл меню не удаляем
-  var url = $ ("a#open-menu").attr ('href').replace ("01_3-меню.html", "#");
-  $ ("a#open-menu").attr ("href", url);
-
-  var menu = $ ('#menu');
-  $ ("a#open-menu").click (function () {menu.show ()});
-  $ ('a#b-header_menu-close').click (function () {menu.hide ()});
+   // меню
+   var menu = $ ('#menu');
+   var page = $ ('.page');
+   var button = $ ("a#open-menu");
+   var buttonImg = $ ('.b-header_button');
+   var url = button.attr ('href').replace ("01_3-меню.html", "#");
+   button.attr ("href", url);
+   button.click (function () {
+      if (buttonImg.attr('class').indexOf ('off') > 0) {
+         page.show ();
+         menu.hide ();
+         buttonImg.removeClass ('off').addClass ('on');
+      } else {
+         menu.show ();
+         page.hide ();
+         buttonImg.removeClass ('on').addClass ('off');
+      }
+   });
 </script>
 </body>
 </html>
