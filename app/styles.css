@@ -1415,18 +1415,18 @@ span.leafletDarkMark .gold {
     color: yellow;
 }
 
-.swiper-green {
+.swiper-iteffect {
     text-align: center;
 }
 
-.swiper-green .swiper-pagination-bullet {
+.swiper-iteffect .swiper-pagination-bullet {
     background: white;
     width: 9px;
     height: 9px;
     opacity: 0.7;
 }
 
-.swiper-green .swiper-pagination-bullet-active {
+.swiper-iteffect .swiper-pagination-bullet-active {
     background: #17dd64;
 }
 
@@ -1434,7 +1434,7 @@ span.leafletDarkMark .gold {
     background: green;
 }
 
-.swiper-green.flats p {
+.swiper-iteffect.flats p {
     text-align: left;
     margin-left: 26px;
     margin-bottom: 25px;
