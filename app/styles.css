@@ -1106,27 +1106,27 @@ th {
     min-width: 320px;
 }
 
-.b-about_div .b-infra_symbol{
+.b-about_div .b-infra_symbol {
     margin-bottom: 100px;
 
 }
-.b-about_txt_buttom{
-    max-width: 280px;
 
+.b-about_txt_buttom {
+    max-width: 280px;
 
 }
 
-.b-about_div .b-infra_div:nth-child(odd) .b-about_txt_buttom{
-     max-width: 268px;
-     padding:0 26px;
+.b-about_div .b-infra_div:nth-child(odd) .b-about_txt_buttom {
+    max-width: 268px;
+    padding: 0 26px;
 
- }
+}
 
-.b-about_div .b-infra_div:nth-child(even) .b-about_txt_buttom{
+.b-about_div .b-infra_div:nth-child(even) .b-about_txt_buttom {
     padding: 0 26px 0 68px;
 }
 
-.b-about_div .b-infra_div:nth-child(even) .b-infra_symbol{
+.b-about_div .b-infra_div:nth-child(even) .b-infra_symbol {
     float: right;
 }
 
@@ -1515,10 +1515,25 @@ span.leafletDarkMark .gold {
     z-index: 100;
 }
 
-.h2-about{
+.h2-about {
     margin: 0 auto;
     max-width: 400px;
     padding-left: 26px;
     margin-bottom: -20px;
 }
 
+.b-swiper-text {
+    width: 190px;
+    margin: 0 auto;
+    padding-top: 130px;
+    min-height: 20px;
+    padding-top: 42px;
+    text-align: left;
+}
+
+.b-swiper-text p {
+    margin-top: -4px;
+    padding: 0;
+    font-size: 18px;
+    color: white;
+}

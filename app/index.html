@@ -152,10 +152,47 @@
 
     <div class="swiper-iteffect  swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><div style="height: 180px; background: url(images/1_1.png) no-repeat;background-position: center center;"></div></div>
-            <div class="swiper-slide"><div style="height: 180px; background: url(images/1_2.png) no-repeat;background-position: center center;"></div></div>
-            <div class="swiper-slide"><div style="height: 180px; background: url(images/1_4.png) no-repeat;background-position: center center;"></div></div>
-            <div class="swiper-slide"><div style="height: 180px; background: url(images/1_5.png) no-repeat;background-position: center center;"></div></div>
+            <div class="swiper-slide">
+                <div style="height: 180px; background: url(images/1_1.png) no-repeat;background-position: center center;">
+                    <div class="b-swiper-text">
+                        <div class="b-infra_symbol">
+                            <img src="images/icons/infra1.svg"/>
+                        </div>
+                        <p>15 минут <br>от Казани</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div style="height: 180px; background: url(images/1_2.png) no-repeat;background-position: center center;">
+                    <div class="b-swiper-text">
+                        <div class="b-infra_symbol">
+                            <img src="images/icons/infra1.svg"/>
+                        </div>
+                        <p>16 минут <br>от Казани</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div style="height: 180px; background: url(images/1_4.png) no-repeat;background-position: center center;">
+                    <div class="b-swiper-text">
+                        <div class="b-infra_symbol">
+                            <img src="images/icons/infra1.svg"/>
+                        </div>
+                        <p>17 минут <br>от Казани</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div style="height: 180px; background: url(images/1_5.png) no-repeat;background-position: center center;">
+                    <div class="b-swiper-text">
+                        <div class="b-infra_symbol">
+                            <img src="images/icons/infra1.svg"/>
+                        </div>
+                        <p>18 минут <br>от Казани</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -225,7 +262,7 @@
     </a>
 
 
-    <a href = "https://unistroyrf.ru/"><img class="b-unistroy" src="images/unistroy.png"></a></a>
+    <a href="https://unistroyrf.ru/"><img class="b-unistroy" src="images/unistroy.png"></a></a>
 
     <div class="b-copyriht">&copy; 2017. Царёво Village</div>
 
@@ -248,7 +285,7 @@
    var url = button.attr ('href').replace ("01_3-меню.html", "#");
    button.attr ("href", url);
    button.click (function () {
-      if (buttonImg.attr('class').indexOf ('off') > 0) {
+      if (buttonImg.attr ('class').indexOf ('off') > 0) {
          page.show ();
          menu.hide ();
          buttonImg.removeClass ('off').addClass ('on');
