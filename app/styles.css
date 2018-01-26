@@ -238,8 +238,7 @@ th {
 .b-button {
     font-family: Ubuntu, Geneva, Arial, Helvetica, sans-serif;
     margin: 10px auto;
-    width: 207px;
-    height: 40px;
+    max-width: 207px;
     background-color: #07c551;
     text-align: center;
     color: white;
@@ -308,34 +307,22 @@ th {
 /*begin b-send*/
 .b-send, .b-send-done {
     position: absolute;
-    top:0;
+    top: 0;
     width: 100%;
     background: #68b84a;
-    height: 300px;
     z-index: 300;
     display: none;
     height: 100%;
     color: white;
-    /*position: fixed;*/
 }
-.b-send_content{
+
+.b-send_content {
     max-width: 400px;
     margin: 0 auto;
     padding: 0 26px;
 }
-/*.b-send {*/
-    /*position: fixed !important;*/
-    /*color: white;*/
-    /*background: #68b84a;*/
-    /*!*padding: 26px;*!*/
-    /*height: 1000px;*/
-    /*position: relative;*/
-    /*display: none;*/
-    /*!*max-width: 400px;*!*/
-    /*margin: 0 auto;*/
-    /*z-index: 1000;*/
-/*}*/
-.b-send input{
+
+.b-send input {
     color: white;
     text-indent: 30px;
 }
@@ -883,7 +870,7 @@ th {
     display: flex;
     justify-content: center;
     margin: 20px auto;
-    width: 266px;
+    max-width: 266px;
     color: white;
     text-align: center;
 }
@@ -905,7 +892,7 @@ th {
     display: table;
     justify-content: center;
     margin: 20px auto;
-    width: 256px;
+    max-width: 256px;
     color: white;
     text-align: center;
 }
@@ -1109,30 +1096,30 @@ th {
 }
 
 /*.b-gallery {*/
-    /*width: 320px;*/
-    /*height: 395px;*/
-    /*background: #b3e3fa;*/
-    /*margin: 0 auto;*/
-    /*position: relative;*/
+/*width: 320px;*/
+/*height: 395px;*/
+/*background: #b3e3fa;*/
+/*margin: 0 auto;*/
+/*position: relative;*/
 /*}*/
 
 /*.b-gallery_button {*/
-    /*position: absolute;*/
-    /*width: 77px;*/
-    /*height: 57px;*/
-    /*cursor: pointer;*/
+/*position: absolute;*/
+/*width: 77px;*/
+/*height: 57px;*/
+/*cursor: pointer;*/
 /*}*/
 
 /*.b-gallery_button.left {*/
-    /*left: 0;*/
+/*left: 0;*/
 /*}*/
 
 /*.b-gallery_button.right {*/
-    /*right: 0;*/
+/*right: 0;*/
 /*}*/
 
 /*.b-gallery_button.right div {*/
-    /*float: right;*/
+/*float: right;*/
 /*}*/
 
 .b-gallery_button {
@@ -1475,21 +1462,24 @@ span.leafletDarkMark .gold {
     padding: 20px 23px 0 23px;
 }
 
-.main-yellow .swiper-pagination{
+.main-yellow .swiper-pagination {
     position: relative;
     padding-bottom: 20px;
 }
-.main-yellow .swiper-pagination-bullet{
+
+.main-yellow .swiper-pagination-bullet {
     margin: 0 5px;
 }
-.main-yellow .swiper-pagination-bullet{
+
+.main-yellow .swiper-pagination-bullet {
     background: #777;
 }
+
 .main-yellow .swiper-pagination-bullet-active {
     background: #17dd64;
 }
 
-.swiper-iteffect_link a{
+.swiper-iteffect_link a {
     position: absolute;
     bottom: 10px;
     margin: 0 50%;
