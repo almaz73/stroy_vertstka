@@ -1430,10 +1430,6 @@ span.leafletDarkMark .gold {
     background: #17dd64;
 }
 
-.swiper-little-green .swiper-pagination-bullet-active {
-    background: green;
-}
-
 .swiper-iteffect.flats p {
     text-align: left;
     margin-left: 26px;
@@ -1441,23 +1437,44 @@ span.leafletDarkMark .gold {
 }
 
 .main-yellow {
-    position: absolute;
     margin: 0 auto;
-    top: 374px;
-    margin-bottom: -10px;
-    right: 50%;
-    margin-right: -138px;
-    text-align: center;
     background: #fcf560;
-    width: 277px;
-    height: 130px;
+    max-width: 277px;
+    min-height: 50px;
 }
 
-.swiper-little-green p {
-    margin-top: 20px;
-    font-size: 14px;
+.main-yellow p {
+    font-size: 16px;
     text-align: left;
-    padding: 0 14px;
+    padding: 20px 23px 0 23px;
+}
+
+.main-yellow .swiper-pagination{
+    position: relative;
+    padding-bottom: 20px;
+}
+.main-yellow .swiper-pagination-bullet{
+    margin: 0 5px;
+}
+.main-yellow .swiper-pagination-bullet{
+    background: #777;
+}
+.main-yellow .swiper-pagination-bullet-active {
+    background: #17dd64;
+}
+
+.swiper-iteffect_link a{
+    position: absolute;
+    bottom: 10px;
+    margin: 0 50%;
+    left: -90px;
+    font-size: 13px;
+    width: 180px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    color: #444;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .empty-space-under-menu {
