@@ -1062,7 +1062,7 @@ th {
     margin-right: 15px;
 }
 
-.b-infra_div {
+.b-infra_div, .b-about_div {
     clear: both;
 }
 
@@ -1091,36 +1091,44 @@ th {
 
 .b-infra_div:nth-child(even) .b-infra_txt_buttom {
     clear: both;
-    padding: 15px 56px;
+    padding: 15px 0 15px 56px;
     text-align: left;
 }
 
-/*.b-gallery {*/
-/*width: 320px;*/
-/*height: 395px;*/
-/*background: #b3e3fa;*/
-/*margin: 0 auto;*/
-/*position: relative;*/
-/*}*/
+.b-about_div .b-infra_div:nth-child(even) {
+    float: right;
+    margin-left: 15px;
+    min-width: 320px;
+}
 
-/*.b-gallery_button {*/
-/*position: absolute;*/
-/*width: 77px;*/
-/*height: 57px;*/
-/*cursor: pointer;*/
-/*}*/
+.b-about_div .b-infra_div:nth-child(odd) {
+    float: left;
+    min-width: 320px;
+}
 
-/*.b-gallery_button.left {*/
-/*left: 0;*/
-/*}*/
+.b-about_div .b-infra_symbol{
+    margin-bottom: 100px;
 
-/*.b-gallery_button.right {*/
-/*right: 0;*/
-/*}*/
+}
+.b-about_txt_buttom{
+    max-width: 280px;
 
-/*.b-gallery_button.right div {*/
-/*float: right;*/
-/*}*/
+
+}
+
+.b-about_div .b-infra_div:nth-child(odd) .b-about_txt_buttom{
+     max-width: 268px;
+     padding:0 26px;
+
+ }
+
+.b-about_div .b-infra_div:nth-child(even) .b-about_txt_buttom{
+    padding: 0 26px 0 68px;
+}
+
+.b-about_div .b-infra_div:nth-child(even) .b-infra_symbol{
+    float: right;
+}
 
 .b-gallery_button {
     margin-left: -5px;
@@ -1507,4 +1515,10 @@ span.leafletDarkMark .gold {
     z-index: 100;
 }
 
+.h2-about{
+    margin: 0 auto;
+    max-width: 400px;
+    padding-left: 26px;
+    margin-bottom: -20px;
+}
 
