@@ -89,8 +89,8 @@
 </div>
 <script>
    'use script';
-   var room = 0;
-   var floor = 0;
+   var room = [];
+   var floor = [];
    var cost1 = 0;
    var cost2 = 0;
    var area1 = 0;
@@ -143,15 +143,23 @@
       var el = "";
       if (type === "room") {
          el = document.getElementById (type + val);
-         clearRoom ();
-         el.style.background = "#07c551";
-         room = val;
+         if (el.style.background) {
+            el.style.background = "";
+            room.splice (room.indexOf (val), 1);
+         } else {
+            el.style.background = "#07c551";
+            room.push (val);
+         }
       }
       if (type === "floor") {
          el = document.getElementById (type + val);
-         clearFloor ();
-         el.style.background = "#07c551";
-         floor = val;
+         if (el.style.background) {
+            el.style.background = "";
+            floor.splice (floor.indexOf (val), 1);
+         } else {
+            el.style.background = "#07c551";
+            floor.push (val);
+         }
       }
       screen ()
    }
@@ -181,8 +189,8 @@
       var list = [];
       for (var i = 0; i < data.length; i++) {
          var el = data[i];
-         if (room !== 0 && el.room !== room) continue;
-         if (floor !== 0 && el.floor !== floor) continue;
+         if (room.length !== 0 && room.indexOf (el.room) === -1) continue;
+         if (floor.length !== 0 && floor.indexOf (el.floor) === -1) continue;
 
          if (cost1 !== 0 && parseFloat (el.cost) * 1000 < cost1) continue;
          if (cost2 !== 0 && parseFloat (el.cost) * 1000 > cost2) continue;
@@ -202,10 +210,10 @@
       document.getElementById ("divFlat").innerHTML = "";
       document.getElementById ("screen").innerHTML = html;
 
-      if (room) jsonAsk.rooms = [room];
+      if (room.length>0) jsonAsk.rooms = room;
       if (cost1 || cost2) jsonAsk.cost = [cost1, cost2];
       if (area1 || area2) jsonAsk.square = [area1, area2];
-      if (floor) jsonAsk.floors = [floor];
+      if (floor.length>0) jsonAsk.floors = floor;
    }
 
    function toGenPlan () {
@@ -228,17 +236,17 @@
    }
 
    function clearRoom () {
-      room = 0;
-      document.getElementById ("room1").style.background = "white";
-      document.getElementById ("room2").style.background = "white";
-      document.getElementById ("room3").style.background = "white";
+      room = [];
+      document.getElementById ("room1").style.background = "";
+      document.getElementById ("room2").style.background = "";
+      document.getElementById ("room3").style.background = "";
    }
 
    function clearFloor () {
-      floor = 0;
-      document.getElementById ("floor1").style.background = "white";
-      document.getElementById ("floor2").style.background = "white";
-      document.getElementById ("floor3").style.background = "white";
+      floor = [];
+      document.getElementById ("floor1").style.background = "";
+      document.getElementById ("floor2").style.background = "";
+      document.getElementById ("floor3").style.background = "";
    }
 
    function clearAll () {

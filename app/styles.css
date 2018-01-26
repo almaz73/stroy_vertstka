@@ -1213,6 +1213,10 @@ th {
     padding: 26px;
 }
 
+.b-filter-body_area button {
+    cursor: pointer;
+}
+
 .b-filter-body input {
     font-size: 22px;
     background: #494a44;
