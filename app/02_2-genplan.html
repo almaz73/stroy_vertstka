@@ -32,20 +32,36 @@
         <img class="b-title-duck_img" src="images/duck.png">
     </div>
 
-
     <div class="b-filter">
         <span class="b-filter_buttons">
-            <span class="b-filter_buttons_on">Генплан</span><a href="03_planirovki.html"><span
-                class="b-filter_buttons_off">
-                Планировки</span></a>
+            <span class="b-filter_buttons_off">Генплан
+            </span><a href="03_planirovki.html"><span class="b-filter_buttons_on">Планировки</span></a>
         </span>
-        <span class="b-filter_opener" onclick="document.location ='05_список-квартир.html?filter'">
+        <span class="b-filter_opener" onclick="openFilter()">
             <img src="images/filter.png">
         </span>
+        <div class="b-filter-body">
+            <div class="b-filter-body_area">
+                <label>КОМНАТ</label>
+                <button id="room1" onclick="select('room',1)">1</button>
+                <button id="room2" onclick="select('room',2)">2</button>
+                <button id="room3" onclick="select('room',3)">3</button>
 
+                <label>ЭТАЖ</label>
+                <button id="floor1" onclick="select('floor',1)">1</button>
+                <button id="floor2" onclick="select('floor',2)">2</button>
+                <button id="floor3" onclick="select('floor',3)">3</button>
+                <br>
+                СТОИМОСТЬ КВАРТИРЫ, ₽<br><br>
+                <input id="cost1" type="text" onkeyup="toInput('cost',1, event)"/> &nbsp; -- &nbsp;
+                <input id="cost2" type="text" onkeyup="toInput('cost',2, event)"/><br><br>
+                ПЛОЩАДЬ, м<sup>2</sup><br><br>
+                <input id="area1" type="text" onkeyup="toInput('area',1, event)"/> &nbsp; -- &nbsp;
+                <input id="area2" type="text" onkeyup="toInput('area',2, event)"/><br><br>
+                <div class="b-filter-body_clear" onclick="clearAll()">Сбросить фильтр</div>
+            </div>
+        </div>
     </div>
-
-    <div id="price-filter"></div>
 
     <div id='leafletmap'>
         <div class="leaflet-control">
@@ -71,5 +87,6 @@
 <script src="js/api.js"></script>
 <script src="js/initMap.js"></script>
 <script src="js/genplan.js"></script>
+<script src="js/filter.js"></script>
 </body>
 </html>

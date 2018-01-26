@@ -7,9 +7,9 @@ var maxBounds = [[-140.625, 0], [0, 250]];
 // var map_z = 5;
 var maxZoom = 6;
 
-var poligons = [];
-var markersPoligon = [];
-var markers = [];
+var poligons = [];         // полигоны
+var markersPoligon = [];   // названия полигонов
+var markers = [];          // квартиры
 
 map = L.map ('leafletmap', {
    editable: false,
@@ -40,6 +40,8 @@ function initMap (res) {
       alert ("не получены данные для карты")
    }
 
+   clearFlatsFromMap();
+
    if (res.zoomId[4]) addPoligons (res.zoomId[4].areas);
    if (res.zoomId[5]) addMarkers (res.zoomId[5].areas);
 
@@ -62,7 +64,7 @@ function initMap (res) {
       toVisibilytes (zoom);
    });
 
-   /*скрытие показ слоев*/
+   /*скрытие/показ слоев*/
    function toVisibilytes (zoom) {
       if (zoom > 2 && zoom < 4) {
          poligons.forEach (function (poligon) {
@@ -87,13 +89,29 @@ function initMap (res) {
       }
    }
 
-   function removeObject (val) {
-      map.removeLayer (val);
-   }
+}
 
-   function addObject (val) {
-      val.addTo (map);
-   }
+function clearFlatsFromMap(){
+   poligons.forEach (function (poligon) {
+      removeObject (poligon)
+   });
+   markersPoligon.forEach (function (marker) {
+      removeObject (marker)
+   });
+   markers.forEach (function (mark) {
+      removeObject (mark)
+   });
+   poligons = [];
+   markersPoligon = [];
+   markers = [];
+}
+
+function removeObject (val) {
+   map.removeLayer (val);
+}
+
+function addObject (val) {
+   val.addTo (map);
 }
 
 function addMarkers (areas) {
