@@ -306,12 +306,38 @@ th {
 }
 
 /*begin b-send*/
-.b-send {
-    color: white;
+.b-send, .b-send-done {
+    position: absolute;
+    top:0;
+    width: 100%;
     background: #68b84a;
-    padding: 26px;
-    height: 1000px;
-    position: relative;
+    height: 300px;
+    z-index: 300;
+    display: none;
+    height: 100%;
+    color: white;
+    /*position: fixed;*/
+}
+.b-send_content{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 26px;
+}
+/*.b-send {*/
+    /*position: fixed !important;*/
+    /*color: white;*/
+    /*background: #68b84a;*/
+    /*!*padding: 26px;*!*/
+    /*height: 1000px;*/
+    /*position: relative;*/
+    /*display: none;*/
+    /*!*max-width: 400px;*!*/
+    /*margin: 0 auto;*/
+    /*z-index: 1000;*/
+/*}*/
+.b-send input{
+    color: white;
+    text-indent: 30px;
 }
 
 .b-send_logo {

@@ -7,18 +7,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Царёво Village</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 
-<div class="page">
+<div class="b-send">
+    <img onclick="closeApply()" class="b-send_logo" src="images/chrest_white.png">
+    <br>
+    <div class="b-send_content">
+        <div class="b-send_title">Отправить заявку</div>
+        <label>ИМЯ</label>
+        <input type="text"/>
+        <label>ТЕЛЕФОН</label>
+        <input type="text"/>
+        <label>ЭЛ.ПОЧТА</label>
+        <input type="text"/>
+        <br><br>
+        <input type="checkbox" class="checkbox">
+        <span class="checkbox_text">Я принимаю условия <u>соглашения</u> об обработке персональных данных</span>
+        <br><br><br>
+    </div>
+    <div onclick="toDone()" class="b-send_button">Отправить</div>
+</div>
+
+<div class="b-send-done">
+    <img onclick="closeApply()"  class="b-send_logo" src="images/chrest_white.png">
+    <div class="b-send_content">
+        <div class="b-send_title">Спасибо!</div>
+        <div class="b-send_text">Менеджер свяжется с вами в ближайшее время</div>
+    </div>
+</div>
+
+<!--фиксированный заголовок-->
+<div class="b-header-fixed">
     <div class="b-header">
-        <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img src="images/arrow_line_left.png"/></span></a>
+        <a href="#" onclick="history.go(-1)"><span class="b-header_arrow hide"><img
+                src="images/arrow_line_left.png"/></span></a>
         <img class="b-header_leaf" src="images/leaf_white.png">
         <img class="b-header_logo" src="images/logo_white.png">
-        <a href="01_3-меню.html"><span class="b-header_button on"></span></a>
+        <a id="open-menu" href="01_3-меню.html"><span class="b-header_button on"></span></a>
     </div>
+</div>
+<div class="empty-space-under-menu"></div>
+<!--end фиксированный заголовок-->
+<!--menu-->
+<div id="menu">
+    <div class="b-menu">
+        <a href="05_список-квартир.html">
+            <div class="b-button">
+                Подобрать квартиру
+            </div>
+        </a>
+        <div class="b-menu_phone">+7 (843) 295-55-46</div>
+        <div class="b-menu_lest">
+            <a href="11_infrastructure.html">Инфраструктура</a>
+            <a href="9_about_tcarevo.html">Преимущества Царёво Village</a>
+            <a href="12_About_company.html">О застройщике</a>
+            <a href="06_news.html">Новости</a>
+            <a href="09_2-online-camera.html">Онлайн-камеры</a>
+            <a href="09_3-history.html">История строительства</a>
+            <a href="08_documents.html">Документация</a>
+            <a href="10_1-banks.html">Ипотека</a>
+            <a href="07_contacs_office.html">Контакты</a>
+        </div>
+        <div class="b-email"><a href="mailto:reelt@unistroyrf.ru">reelt@unistroyrf.ru</a></div>
+    </div>
+</div>
+<!--end menu-->
 
-
+<div class="page">
     <div class="b-title-bird2">
         <span class="b-title-bird2_span"></span>
         <span class="b-title-bird2_text">Ипотека</span>
@@ -70,9 +127,7 @@
     </div>
     <div class="calc-apply">
         <p><b>Сумма кредита <span id="credit">0</span> ₽</b></p>
-        <div class="apply-button">
-            <a href="javascript:alert()"> Оставить заявку</a>
-        </div>
+        <a href="javascript:toApply()"><div class="apply-button">Оставить заявку</div></a>
         <p class="little">Рассчет предварительный, необходимо уточнить у менеджеров</p>
     </div>
 
@@ -80,85 +135,118 @@
     <a href = "https://unistroyrf.ru/"><img class="b-unistroy" src="images/unistroy.png"></a>
 
     <div class="b-copyriht">&copy; 2017. Царёво Village</div>
-
-    <script>
-       'use strict';
-       var year = 0,
-          cost_flat = 0,
-          contribution = 0,
-          months = 0,
-          interestRate = 0,
-
-          monthlyPayment = 0,
-          credit = 0;
-
-       function toContributionButton (event) {
-          contribution = cost_flat * parseInt (event.target.innerText) / 100;
-          document.getElementById ("cost2").value = contribution.toLocaleString ("ru");
-          toCalc ()
-       }
-
-       function toContribution (event) {
-          contribution = parseInt (event.target.value.replace (/\s+/g, ""));
-          if (isNaN (contribution)) document.getElementById ("cost2").value = ""
-          if (contribution) document.getElementById ("cost2").value = contribution.toLocaleString ("ru")
-          toCalc ()
-       }
-
-       function toCost (event) {
-          cost_flat = parseInt (event.target.value.replace (/\s+/g, ""));
-          if (isNaN (cost_flat)) document.getElementById ("cost").value = ""
-          if (cost_flat) document.getElementById ("cost").value = cost_flat.toLocaleString ("ru")
-          toCalc ()
-       }
-
-
-       function toYear (event) {
-          months = parseInt (event.target.value);
-          if (isNaN (months)) months = "";
-          year = months / 12;
-          document.getElementById ("months").value = months;
-          toCalc ()
-       }
-
-       function toYearButton (event) {
-          year = parseInt (event.target.innerText);
-          months = year * 12
-          document.getElementById ("months").value = months;
-          toCalc ()
-       }
-
-       function toPersent (event) {
-          interestRate = parseInt (event.target.value);
-          if (isNaN (interestRate)) interestRate = "";
-          document.getElementById ("percent").value = interestRate;
-          toCalc ()
-       }
-
-
-       function toCalc () {
-          credit = cost_flat - contribution;
-          document.getElementById ("credit").innerText = credit;
-
-          var S = credit;
-          var p = interestRate;
-          var n = year;
-
-          p = p / 1200;
-          n = n * 12;
-
-          if (
-             n === 0 ||
-             p === 0
-          ) return;
-
-          var res = (S * p / (1 - Math.pow (1 + p, -n))).toFixed (2);
-
-          monthlyPayment = parseInt (res);
-          document.getElementById ("monthlyPayment").innerText = monthlyPayment;
-
-       }
-    </script>
 </div>
+<script>
+   'use strict';
+   var year = 0,
+      cost_flat = 0,
+      contribution = 0,
+      months = 0,
+      interestRate = 0,
+
+      monthlyPayment = 0,
+      credit = 0;
+
+   function toContributionButton (event) {
+      contribution = cost_flat * parseInt (event.target.innerText) / 100;
+      document.getElementById ("cost2").value = contribution.toLocaleString ("ru");
+      toCalc ()
+   }
+
+   function toContribution (event) {
+      contribution = parseInt (event.target.value.replace (/\s+/g, ""));
+      if (isNaN (contribution)) document.getElementById ("cost2").value = ""
+      if (contribution) document.getElementById ("cost2").value = contribution.toLocaleString ("ru")
+      toCalc ()
+   }
+
+   function toCost (event) {
+      cost_flat = parseInt (event.target.value.replace (/\s+/g, ""));
+      if (isNaN (cost_flat)) document.getElementById ("cost").value = ""
+      if (cost_flat) document.getElementById ("cost").value = cost_flat.toLocaleString ("ru")
+      toCalc ()
+   }
+
+   function toYear (event) {
+      months = parseInt (event.target.value);
+      if (isNaN (months)) months = "";
+      year = months / 12;
+      document.getElementById ("months").value = months;
+      toCalc ()
+   }
+
+   function toYearButton (event) {
+      year = parseInt (event.target.innerText);
+      months = year * 12
+      document.getElementById ("months").value = months;
+      toCalc ()
+   }
+
+   function toPersent (event) {
+      interestRate = parseInt (event.target.value);
+      if (isNaN (interestRate)) interestRate = "";
+      document.getElementById ("percent").value = interestRate;
+      toCalc ()
+   }
+
+   function toCalc () {
+      credit = cost_flat - contribution;
+      document.getElementById ("credit").innerText = credit;
+
+      var S = credit;
+      var p = interestRate;
+      var n = year;
+
+      p = p / 1200;
+      n = n * 12;
+
+      if (
+         n === 0 ||
+         p === 0
+      ) return;
+
+      var res = (S * p / (1 - Math.pow (1 + p, -n))).toFixed (2);
+
+      monthlyPayment = parseInt (res);
+      document.getElementById ("monthlyPayment").innerText = monthlyPayment;
+
+   }
+
+   // меню
+   var menu = $ ('#menu');
+   var page = $ ('.page');
+   var button = $ ("a#open-menu");
+   var buttonImg = $ ('.b-header_button');
+   var url = button.attr ('href').replace ("01_3-меню.html", "#");
+   button.attr ("href", url);
+   button.click (function () {
+      if (buttonImg.attr('class').indexOf ('off') > 0) {
+         page.show ();
+         menu.hide ();
+         buttonImg.removeClass ('off').addClass ('on');
+      } else {
+         menu.show ();
+         page.hide ();
+         buttonImg.removeClass ('on').addClass ('off');
+      }
+   });
+
+   //подать заявку
+   var bsend = $ ('.b-send');
+   var bsendDone = $ ('.b-send-done');
+   function toApply () {
+      bsend.show ();
+      page.hide ();
+   }
+   function closeApply(){
+      bsendDone.hide();
+      bsend.hide();
+      page.show  ();
+   }
+   function toDone () {
+      bsend.hide();
+      bsendDone.show()
+   }
+</script>
 </body>
 </html>
