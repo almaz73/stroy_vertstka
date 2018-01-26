@@ -116,8 +116,12 @@ function screen () {
 
    if (document.getElementById ("button-planirovki")) document.getElementById ("button-planirovki").style.display = "none";
    if (document.getElementById ("divFlat")) document.getElementById ("divFlat").innerHTML = "";
-   if (document.getElementById ("screen")) document.getElementById ("screen").innerHTML = html;
-   console.log(" val = +++");
+   if (document.getElementById ("screen")) {
+      document.getElementById ("screen").innerHTML = html;
+      return;
+   }
+
+   // ниже код, для работы с картой
    var jsonAsk = {};
    if (room.length>0) jsonAsk.rooms = room;
    if (cost1 || cost2) jsonAsk.cost = [cost1, cost2];
@@ -176,17 +180,28 @@ function clearAll () {
 function openFilter (bool) {
    var opener = document.getElementsByClassName ("b-filter_opener")[0];
    var filterBody = document.getElementsByClassName ("b-filter-body")[0];
-   if ((!bool && !bool) && filterBody.style.display !== 'block') {
+   if (!bool && filterBody.style.display !== 'block') {
       opener.style.padding = '10px 14px 16px 14px';
       filterBody.style.display = 'block'
    } else {
       opener.style.padding = '10px 14px 7px';
       filterBody.style.display = 'none'
    }
+
+   var divFlat = document.getElementById("divFlat");
+
+   var smallFilter = document.getElementsByClassName ("b-planirovki")[0];
+   var plans = document.getElementById("plans");
+   if (smallFilter && filterBody.style.display !== 'block' && divFlat.innerHTML=="") {
+      smallFilter.style.display = 'block';
+      plans.style.display = 'block';
+   } else {
+      smallFilter.style.display = 'none';
+      plans.style.display = 'none';
+   }
 }
 
 function showFlat (event) {
-   openFilter ("скрыть");
    var tr = event.target.parentElement;
    var el = tr.innerHTML;
 
@@ -200,12 +215,23 @@ function showFlat (event) {
    var arr = el.substring (4, el.length - 5).split ("</td><td>");
    flat = {number: arr[0], floor: arr[1], room: arr[2], area: arr[3], cost: arr[4], flat: arr[5]};
    var text = '<img class="b-img-center" style="width: 100%" src="images/flat/' + arr[5] + '" />';
-   text += '<br><br><div class="mebel">Мебель <img id="onOff" class="onOff" onclick="toDetails()" src="images/off.png"/></div>';
+   text += '<br><br><div class="mebel">Мебель <img id="onOff" class="onOff" onclick="showWithFurniture()" src="images/off.png"/></div>';
    text += '<div id="info" class="info"></div>';
    text += '<div><h2>Квартиры с такой планировкой</h2></div>';
    document.getElementById ("divFlat").innerHTML = text;
    document.getElementById ("button-planirovki").style.display = "block";
    document.getElementById ("info").innerHTML = '<div>Квартира-студия, ' + arr[3] + ' м<sup>2</sup> </div>';
+
+
+   var text = '<div><h2>' + flat.room + '-комнатная квартира, ' + flat.area + ' м<sup>2</sup></h2></div>';
+   text += 'ДОМ № ' + flat.number + '<br>';
+   text += 'КВ.М' + flat.area + '<br>';
+   text += 'ЭТАЖ  ' + flat.floor + '<br>';
+   text += 'СТОИМОСТЬ  ' + (flat.cost * 1000).toLocaleString ("ru") + ' ₽<br>';
+   text += '<div class="b-button white"><a href="javascript:alert()">Оставить заявку</a></div>';
+   document.getElementById ("info").innerHTML = text;
+
+   openFilter ("скрыть");
 }
 
 function toListArea () {
@@ -213,22 +239,10 @@ function toListArea () {
    document.getElementById ("button-planirovki").style.display = "none";
 }
 
-function toDetails () {
+
+function showWithFurniture () {
    var div = document.getElementById ("onOff");
    var boolean = div.src.indexOf ("on") > 0;
-
-   if (boolean) {
-      div.src = "images/off.png";
-      document.getElementById ("info").innerHTML = '<div>Квартира-студия, ' + flat.area + ' м<sup>2</sup> </div>';
-   } else {
-      div.src = "images/on.png";
-      var text = '<div><h2>' + flat.room + '-комнатная квартира, ' + flat.area + ' м<sup>2</sup></h2></div>';
-      text += 'ДОМ № ' + flat.number + '<br>';
-      text += 'КВ.М' + flat.area + '<br>';
-      text += 'ЭТАЖ  ' + flat.floor + '<br>';
-      text += 'СТОИМОСТЬ  ' + (flat.cost * 1000).toLocaleString ("ru") + ' ₽<br>';
-      text += '<div class="b-button white"><a href="javascript:alert()">Оставить заявку</a></div>';
-      document.getElementById ("info").innerHTML = text;
-   }
-
+   div.src = boolean ? "images/off.png" : "images/on.png";
+   alert (" function : showWithFurniture ");
 }

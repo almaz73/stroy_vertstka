@@ -29,9 +29,56 @@
             <a href="02_2-genplan.html"><span class="b-filter_buttons_on">Генплан</span></a><span
                 class="b-filter_buttons_off">Планировки</span>
         </span>
-        <span class="b-filter_opener" onclick="document.location ='05_список-квартир.html?filter'">
+        <span class="b-filter_opener" onclick="openFilter()">
             <img src="images/filter.png">
         </span>
+        <div class="b-filter-body">
+            <div class="b-filter-body_area">
+                <label>КОМНАТ</label>
+                <button id="room1" onclick="select('room',1)">1</button>
+                <button id="room2" onclick="select('room',2)">2</button>
+                <button id="room3" onclick="select('room',3)">3</button>
+
+                <label>ЭТАЖ</label>
+                <button id="floor1" onclick="select('floor',1)">1</button>
+                <button id="floor2" onclick="select('floor',2)">2</button>
+                <button id="floor3" onclick="select('floor',3)">3</button>
+                <br>
+                СТОИМОСТЬ КВАРТИРЫ, ₽<br><br>
+                <input id="cost1" type="text" onkeyup="toInput('cost',1, event)"/> &nbsp; -- &nbsp;
+                <input id="cost2" type="text" onkeyup="toInput('cost',2, event)"/><br><br>
+                ПЛОЩАДЬ, м<sup>2</sup><br><br>
+                <input id="area1" type="text" onkeyup="toInput('area',1, event)"/> &nbsp; -- &nbsp;
+                <input id="area2" type="text" onkeyup="toInput('area',2, event)"/><br><br>
+                <div class="b-filter-body_clear" onclick="clearAll()">Сбросить фильтр</div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="b-document listFlats">
+        <div id="divFlat"></div>
+        <table>
+            <thead>
+            <tr>
+                <th>Д.№</th>
+                <th>ЭТ.</th>
+                <th>КОМН.</th>
+                <th>ПЛ.М<sup>2</sup></th>
+                <th width="65px">СТОИМ., Т.₽</th>
+            </tr>
+            </thead>
+            <tbody id="screen">
+            <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>22,5</td><td>-</td><td>-</td></tr>-->
+            <!--<tr onclick="showFlat(event)"><td>2,18</td><td>1</td><td>1</td><td>21,5</td><td>2 000,5</td><td>-</td></tr>-->
+            <!--<tr onclick="showFlat(event)"><td>2,17</td><td>1</td><td>1</td><td>22,5</td><td>3 500</td><td>-</td></tr>-->
+            </tbody>
+        </table>
+
+        <br>
+        <div id="button-planirovki" onclick="toListArea()" class="b-button white wrap">Показать планировки с такой же
+            площадью
+        </div>
     </div>
 
 
@@ -71,49 +118,17 @@
 
 </div>
 
+<script src="js/filter.js"></script>
+
+
 <script>
    'use strict';
-   var data = [
-      {id: 1, number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat2.png"},
-      {id: 2, number: "2,12", floor: 2, room: 1, area: "21.5", cost: "3000.5", flat: "flat3.png"},
-      {id: 3, number: "2,18", floor: 1, room: 1, area: "21.5", cost: "3500.5", flat: "flat2.png"},
-      {id: 4, number: "2,15", floor: 2, room: 1, area: "22", cost: "1900.5", flat: "flat3.png"},
-      {id: 5, number: "2,18", floor: 2, room: 1, area: "21", cost: "2000", flat: "flat2.png"},
-      {id: 6, number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat3.png"},
-      {id: 7, number: "2,18", floor: 1, room: 2, area: "50.5", cost: "2000.5", flat: "flat1.png"},
-      {id: 8, number: "2,12", floor: 2, room: 2, area: "51.5", cost: "3000.5", flat: "flat1.png"},
-      {id: 9, number: "2,18", floor: 3, room: 2, area: "51.5", cost: "3500.5", flat: "flat1.png"},
-      {id: 10, number: "2,15", floor: 1, room: 2, area: "52", cost: "1900.5", flat: "flat1.png"},
-      {id: 11, number: "2,18", floor: 2, room: 2, area: "51", cost: "2000", flat: "flat1.png"},
-      {id: 12, number: "2,18", floor: 1, room: 2, area: "52.5", cost: "2000.5", flat: "flat1.png"},
-      {id: 13, number: "2,18", floor: 2, room: 3, area: "100", cost: "7300.5", flat: "flat4.png"},
-      {id: 14, number: "2,18", floor: 3, room: 3, area: "94", cost: "6700.5", flat: "flat4.png"},
-      {id: 15, number: "2,12", floor: 3, room: 3, area: "101", cost: "7000.5", flat: "flat4.png"},
-      {id: 16, number: "2,18", floor: 3, room: 3, area: "89", cost: "6500.5", flat: "flat4.png"},
-      {id: 17, number: "2,15", floor: 1, room: 3, area: "102", cost: "6900.5", flat: "flat4.png"},
-      {id: 18, number: "2,18", floor: 1, room: 3, area: "110", cost: "7000", flat: "flat4.png"},
-      {id: 19, number: "2,18", floor: 2, room: 3, area: "90", cost: "6000.5", flat: "flat4.png"},
-      {id: 20, number: "2,18", floor: 1, room: 1, area: "22.5", cost: "2000.5", flat: "flat2.png"},
-      {id: 21, number: "2,18", floor: 1, room: 2, area: "62.5", cost: "2000.5", flat: "flat1.png"},
-      {id: 22, number: "2,12", floor: 2, room: 2, area: "61.5", cost: "3000.5", flat: "flat1.png"},
-      {id: 23, number: "2,18", floor: 3, room: 2, area: "70.5", cost: "3500.5", flat: "flat1.png"},
-      {id: 24, number: "2,15", floor: 1, room: 2, area: "62", cost: "1900.5", flat: "flat1.png"},
-      {id: 25, number: "2,18", floor: 2, room: 2, area: "61", cost: "2000", flat: "flat1.png"},
-      {id: 26, number: "2,18", floor: 1, room: 2, area: "72.5", cost: "2000.5", flat: "flat1.png"},
-      {id: 27, number: "2,18", floor: 1, room: 3, area: "100", cost: "7300.5", flat: "flat4.png"},
-      {id: 28, number: "2,18", floor: 3, room: 3, area: "94", cost: "6700.5", flat: "flat4.png"},
-      {id: 29, number: "2,12", floor: 2, room: 3, area: "101", cost: "7000.5", flat: "flat4.png"},
-      {id: 30, number: "2,18", floor: 3, room: 3, area: "89", cost: "6500.5", flat: "flat4.png"},
-      {id: 31, number: "2,15", floor: 3, room: 3, area: "102", cost: "6900.5", flat: "flat4.png"},
-      {id: 32, number: "2,18", floor: 1, room: 3, area: "110", cost: "7000", flat: "flat4.png"},
-      {id: 33, number: "2,18", floor: 2, room: 3, area: "90", cost: "6000.5", flat: "flat4.png"}
-   ];
-   var room = [true, true, false];
+   var roomChoise = [true, true, false];
 
    function showRoom (val, event) {
       if (!event.target.src) return;
       var checkOn = event.target.src.indexOf ("checkOn") > 0;
-      room[val - 1] = !checkOn;
+      roomChoise[val - 1] = !checkOn;
       event.target.src = checkOn ? "images/checkOff.png" : "images/checkOn.png";
       show ()
    }
@@ -125,7 +140,7 @@
       for (var i = 0; i < data.length; i++) {
          var el = data[i];
          if (counter > 6) continue; // выдаем ограниченное число картинок
-         if (!room[el.room - 1]) continue;
+         if (!roomChoise[el.room - 1]) continue;
          counter++;
          text += '<div class="b-img-center"><img src="images/flat/' + el.flat + '"/>';
          text += '<span onclick="onFlat(' + el.id + ')"> ' + el.room + '-комнатная квартира, ' + el.area + ' м<sup>2</sup><br>от ' + el.cost + ' руб.</span></div>'
