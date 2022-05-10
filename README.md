@@ -1,7 +1,7 @@
 Верстка под смартфон
 
 
-[ДЕМО](http://fmap.ru/games/game/stroy_verstka/) 
+[ДЕМО](http://fmap.ru/games/mobileSite) 
 ======
 
 Сборка использует `gulp watch` для удобства кодирования.
